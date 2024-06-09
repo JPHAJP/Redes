@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .estilo-cuadrotexto {
+            background-color: #EF4044; 
+            color: white; 
+            font-family: Trebuchet MS; 
+            font-size: 15px; 
+            border: none;
+            outline:none;
+            border-bottom: 3px solid white;
+            padding-bottom: 15px;
+            text-align: center;
+            width: 80%;
+        }
+        .estilo-enviar {
+            background-color: #EF4044; 
+            color: white; 
+            font-family: Trebuchet MS; 
+            font-size: 35px;
+            border: 4px solid white;
+            width: 70%;
+            height: 65%;
+            cursor: pointer; 
+            border-radius: 13px;
+        }
+        .estilo-recuperarcont {
+            background-color:transparent; 
+            color: white; 
+            font-family: Trebuchet MS; 
+            font-size: 12px;
+            border: none;
+            cursor: pointer; 
+        }
+        body {
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: background-slide 15s infinite alternate;
+        }
+        @keyframes background-slide {
+            0% { background-image: url(images/Capilla.jpg); } 
+            33% { background-image: url(images/Edificio.jpg); }
+            66% { background-image: url(images/Estacionmiento_1.jpg); }
+            100% { background-image: url(images/Gym.jpg); }
+        }
+    </style>
+
+    <head></head>
+
+    <body>
+        <table width="100%" height="600px" border="0" bordercolor="blue"> <!--Tabla para centar el contenido-->
+            <tr width="100%">
+                <td></td><!--Primera Columna-->
+                <td width="350px"> <!--Tamaño de la columna del centro-->
+                    <table border="0" width="85%"> <!--Tabla del centro-->
+                        <tr width="100%">
+                            <td>
+                                <table style="background-color:#EF4044;border-style:solid; width:100%; border-radius:13px; border:2; border-color:white;">
+                                    <tr> <!--Primer Fila-->
+                                        <td>
+                                            <p style="font-family:Trebuchet MS; color:white;font-size: 25px; text-align: center;">Iniciar Sesión</p>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                    <tr> <!--Segunda fila-->
+                                        <td>
+                                            <table border="0" width="100%"> <!--Tabla para separar el icono y el texto-->
+                                                <tr width="100%">
+                                                    <td width="20%">
+                                                        <img src="images/icon_cuenta.png">
+                                                    </td with="80%">
+                                                    <td><p style="font-family:Trebuchet MS; color:white;font-size:15px; text-align: center;">Cuenta</p></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr> <!--Tercera fila-->
+                                        <td align="center">
+                                            <input type="text" class="estilo-cuadrotexto"> 
+                                        </td>
+                                    </tr>
+                                    <tr> <!--Cuarta fila-->
+                                        <td>
+                                            <br>
+                                            <table border="0" width="100%"><!--Tabla para separar el icono y el texto-->
+                                                <tr width="100%">
+                                                    <td width="20%">
+                                                        <img src="images/icon_contraseña.png">
+                                                    </td with="80%">
+                                                    <td><p style="font-family:Trebuchet MS; color:white;font-size:15px; text-align: center;">Contraseña</p></td>
+                                                </tr>
+                                            </table>
+                                        </td> 
+                                    </tr>
+                                    <tr> <!--Quinta fila-->
+                                        <td align="center">
+                                            <input type="password" class="estilo-cuadrotexto"> 
+                                        </td>
+                                    </tr>
+                                    <tr> <!--Sexta fila-->
+                                        <td>
+                                            <table border="0" width="100%" height="100px"> <!--Tabla para centar el boton-->    
+                                                <td style="text-align: center;"><input type="button" class="estilo-enviar" value="Enviar"></td>  
+                                            </table>
+                                        </td>    
+                                    </tr>
+                                    <tr> <!--Septima fila-->
+                                        <td>
+                                            <table border="0" width="100%" > <!--Tabla para alienear el boton a la derecha-->
+                                                <tr>
+                                                    <td style="text-align: right;"><input type="button" class="estilo-recuperarcont" value="Recuperar Contraseña"></td>
+                                                </tr>   
+                                            </table>
+                                            <br>
+                                        </td>    
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td><!--Tercera Columna-->
+            </tr>
+        </table>
+    </body>
+</html>
