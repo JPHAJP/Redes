@@ -11126,3 +11126,6 @@ footer.footer .social-link:hover {
 .code-section {
   width: 100%;
 }
+
+table, th, td {
+  border:2px solid white;}

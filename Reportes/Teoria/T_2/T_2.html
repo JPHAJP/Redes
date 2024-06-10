@@ -39,8 +39,8 @@
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Práctica 1</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Comunicación entre microcontroladores.</p>
+                <h1 class="display-4 fw-bolder">Práctica 2</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Introducción a OSI y TCP/IP.</p>
                 <a class="btn btn-primary btn-xl" href="../../../teoria.html">Regresar a Teoría</a>
             </div>
         </div>
@@ -51,112 +51,281 @@
             <h3 class="text-secondary mb-0">Descripción</h3>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-6">
-                    <p>En esta práctica se desarrollaron distintos progrmas para evaluar los metodos de comuinación que
-                        se
-                        utilizan en el área de redes digitales; esto incluye revisar que la información que se envía sea
-                        la correcta y este completa.</p>
-                    <a class="btn btn-primary btn-xl" href="T_1.pdf">Instrucciones PDF</a>
+                    <p>Aquí va una descripción</p>
+                    <a class="btn btn-primary btn-xl" href="#">Instrucciones PDF</a>
                 </div>
                 <div class="col-lg-6">
                     <img class="img-fluid" width="70%" height="auto"
-                        src="https://media.licdn.com/dms/image/C5612AQE8RojSf36MkA/article-cover_image-shrink_600_2000/0/1636698019897?e=2147483647&v=beta&t=2u9sNHe_3BG4HyYNMlCZ-2aGpQA_bWzM4hYxToiR0vk"
+                        src="OSI_TCP.webp"
                         alt="...">
                 </div>
             </div>
         </div>
     </section>
     <!-- Events Section -->
-    <section id="events" class="events section">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-img">
-                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/8pbPpV1kmNP"
-                                frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Parte 1</a></h5>
-                            <p class="fst-italic text-center">Contador de Pulsos.</p>
-                            <p class="card-text">En esta actividad, se diseña y prueba un protocolo de comunicación para
-                                un contador de pulsos.
-                                Utilizando dos Arduinos, uno se programa para enviar una cantidad específica de pulsos a
-                                distintas frecuencias,
-                                mientras que el segundo Arduino cuenta los pulsos recibidos y los muestra en el monitor
-                                serial. Los Arduinos se conectan y
-                                calibran usando un osciloscopio para verificar el funcionamiento correcto a frecuencias
-                                de 1, 10, 100 y 1000 pulsos por segundo.
-                                Se requiere una conexión común a tierra entre los dispositivos para la comunicación
-                                efectiva.</p>
-                        </div>
-                    </div>
+<section class="page-section bg-dark">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="MOSI.png" alt="..." /></div>
+                <div class="col-md-6">
+                    <h3 class="display-5 fw-bolder text-white">Modelo OSI</h3>
+                    <p class="lead text-white">
+                        El modelo OSI se basa en una propuesta desarrollada por la Organización Internacional de Normas (ISO) como el primer paso hacia la estandarización internacional de los protocolos utilizados en las diversas capas.
+                        El modelo divide las tareas de la red en siete capas, cada una de las cuales es responsable de un aspecto específico de la comunicación de red.        
+                    </p>
                 </div>
-                <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-img">
-                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/crFoICppZ5G"
-                                frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Parte 2</a></h5>
-                            <p class="fst-italic text-center">Contador de Tiempo.</p>
-                            <p class="card-text">Esta actividad se centra en desarrollar un protocolo para contar el
-                                tiempo de duración de los pulsos.
-                                Un Arduino genera pulsos con un tiempo en estado alto específico, comprobado con un
-                                osciloscopio. El segundo Arduino mide la
-                                duración de estos pulsos y los muestra en el monitor serial. Además, se realiza la
-                                transmisión de una serie de 4 bits,
-                                iniciando con un bit alto, desde el primer al segundo Arduino, quien los interpreta y
-                                muestra en el monitor serial. La conexión a
-                                tierra entre ambos dispositivos es esencial para la comunicación.</p>
-                        </div>
-                    </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body"><h1 font-size="50px" class="text-white m-0">Las 7 capas del modelo OSI son: </h1></div>
+        </div>
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">1. Capa Física</h3>
+                    <p class="card-text">	
+                        Define las características eléctricas y físicas del hardware de la red. Se encarga de la transmisión y recepción de datos sin procesar a través del medio físico, como cables o fibras ópticas. 
+                        La capa física se relaciona con la transmisión de bits puros a través de un canal de transmisión. Los
+                        aspectos de diseño tienen que ver con la acción de asegurarse que cuando uno de los lados envíe un bit 1
+                        el otro lado lo reciba como un bit 1, no como un bit 0.
+                    </p>
                 </div>
-                <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-img">
-                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/hAjJMffbMSe"
-                                frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Parte 3</a></h5>
-                            <p class="fst-italic text-center">Convertidor a Binario.</p>
-                            <p class="card-text">Aquí se desarrolla un sistema para convertir valores analógicos a
-                                binario. Un Arduino convierte el valor de un
-                                potenciómetro a un número binario de 8 bits, visualizado en sus pines digitales. Otro
-                                Arduino recibe estos valores binarios, los
-                                convierte a decimal y los muestra en el monitor serial. Esta actividad asegura que los
-                                Arduinos se comuniquen correctamente mediante la
-                                conversión y transferencia de datos entre analógico, binario y decimal, con la conexión
-                                a tierra común necesaria para la comunicación.</p>
-                        </div>
-                    </div>
+                <div class="card-footer"><p class="card-text">Ejemplo de Aplicación:  Los bits se transmiten como señales eléctricas.</p></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">2. Capa de Enlace de Datos</h3>
+                    <p class="card-text">	
+                        La principal tarea de la capa de enlace de datos es transformar un medio de transmisión puro en una línea
+                        que esté libre de errores de transmisión. 
+                        Enmascara los errores reales, de manera que la capa de red no los vea. Para lograr esta tarea, el emisor divide los datos de entrada en tramas de datos y transmite las tramas en forma secuencial. Si el servicio es confiable,
+                        para confirmar la recepción correcta de cada trama, el receptor devuelve una trama de confirmación
+                        de recepción.
+                    </p>
                 </div>
-                <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-img">
-                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/50W7JsSgurF"
-                                frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Parte 4</a></h5>
-                            <p class="fst-italic text-center">Protocolo de Comunicación Asíncrono.</p>
-                            <p class="card-text">En la última actividad, se implementa un protocolo de comunicación
-                                asíncrono. Un Arduino convierte el valor
-                                analógico de un potenciómetro a un arreglo binario de 8 bits y lo envía en serie,
-                                precedido por un bit de inicio en alto,
-                                siguiendo un pulso predeterminado. El segundo Arduino recibe esta secuencia de bits, la
-                                procesa y convierte a un valor decimal,
-                                que luego se muestra en el monitor serial. Este proceso requiere que ambos Arduinos
-                                compartan una conexión a tierra común para
-                                garantizar la comunicación precisa y asíncrona.</p>
-                        </div>
-                    </div>
+                <div class="card-footer"><p class="card-text">Ejemplo de Aplicación: Los datos se empaquetan en tramas y se transmiten a través de la red local.</p></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">3. Capa de Red</h3>
+                    <p class="card-text">	
+                        La capa de red controla la operación del direccionamiento y encaminamiento de los datos entre dispositivos en redes diferentes. Se encarga de la determinación de la ruta. 
+                        Las rutas se pueden basar en tablas estáticas que se “codifican” en la red y rara vez cambian, aunque es más común que se actualicen de manera automática para evitar las fallas en los componentes.
+                        Si hay demasiados paquetes en la subred al mismo tiempo, se interpondrán en el camino unos con otros y formarán cuellos de botella. El manejo de la congestión también es responsabilidad de la capa de red, en conjunto con las capas superiores que adaptan la carga que colocan en la red.
+                    </p>
                 </div>
+                <div class="card-footer"><p class="card-text">	Ejemplo de Aplicación: Los paquetes se encaminan a través de la red.
+                </p></div>
             </div>
         </div>
         </div>
-    </section>
+        <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">4. Capa de Transporte</h3>
+                    <p class="card-text">
+                        Su función es aceptar datos de la capa superior, dividirlos en unidades
+                        más pequeñas si es necesario, pasar estos datos a la capa de red y asegurar que todas las piezas lleguen correctamente al otro extremo.  
+                        La capa de transporte también determina el tipo de servicio que debe proveer a la capa de sesión y, en
+                        última instancia, a los usuarios de la red. El tipo más popular de conexión de transporte es un canal punto
+                        a punto libre de errores que entrega los mensajes o bytes en el orden en el que se enviaron.
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">	Ejemplo de Aplicación: Los paquetes se encaminan a través de la red.
+                </p></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">5. Capa de Sesión</h3>
+                    <p class="card-text">	
+                        Gestiona y controla las conexiones entre computadoras. Establece, mantiene y termina conexiones de sesión. 
+                        Las sesiones ofrecen varios servicios, incluyendo el control del diálogo, el manejo de tokens y la sincronización.                        
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">Ejemplo de Aplicación: Se establece una sesión segura.</a></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">6. Capa de Presentación</h3>
+                    <p class="card-text">	
+                        Traduce los datos entre el formato de la red y el formato que pueden usar las aplicaciones.  
+                        Para hacer posible la comunicación entre computadoras con distintas representaciones internas de datos,
+                        podemos definir de una manera abstracta las estructuras de datos que se van a intercambiar, junto con
+                        una codificación estándar que se use “en el cable”. La capa de presentación maneja estas estructuras
+                        de datos abstractas y permite definir e intercambiar estructuras de datos de mayor nivel.
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">Ejemplo de Aplicación: Si la conexión es segura, el navegador cifra los datos.</p></div>
+            </div>
+        </div>
+        </div>
+        <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">7. Capa de Aplicación</h3>
+                    <p class="card-text">	
+                        Proporciona servicios de red directamente a las aplicaciones del usuario final. Permite la comunicación entre el software de aplicación y la red.
+                        Esta capa contiene una variedad de protocolos que los usuarios necesitan con frecuencia. Un protocolo de aplicación muy utilizado es HTTP, el cual forma la base para la World Wide Web. Cuando un navegador desea una página web, envía el nombre de la página que quiere al servidor que la hospeda mediante el uso de HTTP. Después el servidor envía la página de vuelta.
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">Ejemplo de Aplicación: El usuario ingresa una URL en el navegador.</p></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section><!-- Events Section -->
+<section class="page-section bg-light">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="MTCP.png" alt="..." /></div>
+                <div class="col-md-6">
+                    <h3 class="display-5 fw-bolder">Modelo TCP/IP</h3>
+                    <p class="lead">
+                        El modelo TCP/IP es un conjunto de protocolos de red que permite la comunicación en Internet y en la mayoría de las redes privadas.
+                        A menudo se lo compara con el modelo OSI debido a sus similitudes en la organización por capas. Sin embargo, el modelo TCP/IP es más práctico y ha sido desarrollado y refinado a través del uso y la implementación real en redes.</p>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body"><h1 font-size="50px" class="text-white m-0">El modelo TCP/IP tiene cuatro capas:</h1></div>
+        </div>
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">1. Capa de Enlace</h3>
+                    <p class="card-text">	
+                        Esta capa describe qué enlaces se deben llevar a cabo para cumplir con las necesidades de esta capa de interred sin conexión.  Se encarga de la transmisión de datos entre el dispositivo y la red física a la que está conectado.
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">Ejemplo de Aplicación:  Los datos se empaquetan en tramas y se transmiten a través de la red local como señales eléctricas.
+                </p></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">2. Capa de interred</h3>
+                    <p class="card-text">	
+                        Esta capa es el eje que mantiene unida a toda la arquitectura.  Su trabajo es permitir que los hosts inyecten paquetes en cualquier red y que viajen de manera independiente hacia el destino.
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">	Ejemplo de Aplicación:  Los paquetes se encaminan a través de la red.
+                </p></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">3. Capa de Transporte</h3>
+                    <p class="card-text">	
+                        Proporciona una comunicación fiable o no fiable entre los dispositivos de la red. Administra la segmentación de los datos y la reensambladura de los mismos en el destino.
+                        Aquí se definieron dos protocolos de transporte de extremo a extremo. El primero, TCP (Protocolo de Control de la Transmisión y el segundo protocolo en esta capa, UDP (Protocolo de Datagrama de Usuario).
+                    
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">	Ejemplo de Aplicación: Los datos se segmentan y se asegura su entrega.
+
+                </p></div>
+            </div>
+        </div>
+        </div>
+        <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">4. Capa de Aplicación</h3>
+                    <p class="card-text">
+                        El modelo TCP/IP no tiene capas de sesión o de presentación, ya que no se consideraron necesarias. Las
+                        aplicaciones simplemente incluyen cualquier función de sesión y de presentación que requieran.
+                        Ésta contiene todos los protocolos de alto nivel. Entre los primeros protocolos están el de terminal virtual (TELNET), transferencia de archivos (FTP) y correo electrónico (SMTP).
+                    </p>
+                </div>
+                <div class="card-footer"><p class="card-text">Ejemplo de Aplicación:  El usuario ingresa una URL en el navegador.</p></div>
+            </div>
+        </div>
+</section>
+<section class="page-section bg-dark text-white">
+    <div class="container">
+        <div class="text-center mt-5">
+            <h1>Modelo OSI vs. Modelo TCP/IP</h1>
+            <br>
+            <table style="width:100%">
+                <!--Fila 1-->
+                <tr>
+                    <th>Modelo OSI</th>
+                    <th>Funcion</th>
+                    <th>Modelo TCP/IP</th>
+                    <th>Funcion</th>
+                </tr>
+                <!--Fila 2-->
+                <tr>
+                    <td>Capa 7: Aplicación</td>
+                    <td>Proporciona servicios de red directamente a las aplicaciones del usuario final.</td>
+                    <td>Capa de Aplicación</td>
+                    <td>Proporciona servicios de red directamente a las aplicaciones del usuario final, combinando funciones de las capas de aplicación, presentación y sesión del modelo OSI.</td>
+                </tr>
+                <!--Fila 3-->
+                <tr>
+                    <td>Capa 6: Presentación</td>
+                    <td>Traduce los datos entre el formato de la red y el formato que pueden usar las aplicaciones. Se ocupa de la codificación, cifrado y compresión de datos.</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <!--Fila 4-->
+                <tr>
+                    <td>Capa 5: Sesión</td>
+                    <td>Gestiona y controla las conexiones entre computadoras. Establece, mantiene y termina conexiones de sesión.</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <!--Fila 5-->
+                <tr>
+                    <td>Capa 4: Transporte</td>
+                    <td>Proporciona una transferencia de datos fiable y asegura que los datos lleguen sin errores, en secuencia y sin pérdidas o duplicaciones.</td>
+                    <td>Capa de Transporte</td>
+                    <td>Proporciona una comunicación fiable o no fiable entre dispositivos de la red, gestionando la segmentación y reensambladura de los datos.</td>
+                </tr>
+                <!--Fila 6-->
+                <tr>
+                    <td>Capa 3: Red</td>
+                    <td>Gestiona el direccionamiento y encaminamiento de los datos (paquetes) entre dispositivos en redes diferentes. Se encarga de la determinación de la ruta.</td>
+                    <td>Capa de Internet</td>
+                    <td>Combina las funciones de la capa física y la capa de enlace de datos del modelo OSI, gestionando la transmisión de datos entre el dispositivo y la red física.</td>
+                </tr>
+                <!--Fila 7-->
+                <tr>
+                    <td>Capa 2: Enlace de Datos</td>
+                    <td>Proporciona una transferencia de datos fiable entre dos nodos directamente conectados. Se encarga de la detección y corrección de errores en la capa física.</td>
+                    <td>Capa de Acceso a la Red</td>
+                    <td>Combina las funciones de la capa física y la capa de enlace de datos del modelo OSI, gestionando la transmisión de datos entre el dispositivo y la red física.</td>
+                </tr>
+                <!--Fila 8-->
+                <tr>
+                    <td>Capa 1: Física</td>
+                    <td>Define las características eléctricas y físicas del hardware de la red. Se encarga de la transmisión y recepción de datos sin procesar a través del medio físico.</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+    <div align="center"><img style="filter: invert()" src="Comparacion.png"></div>
+</section>
     <!-- Footer -->
     <footer class="footer text-center">
         <div class="container px-4 px-lg-5"></div>
