@@ -51,7 +51,7 @@
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Práctica 1</h1>
+                <h1 class="display-4 fw-bolder">Práctica 2</h1>
                 <p class="lead fw-normal text-white-50 mb-0">Comunicación entre microcontroladores.</p>
                 <a class="btn btn-primary btn-xl" href="../../../teoria.html">Regresar a Teoría</a>
             </div>
@@ -83,21 +83,20 @@
                 <div class="d-flex align-items-stretch">
                     <div class="card">
                         <div class="card-img">
-                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/8pbPpV1kmNP"
+                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/crFoICppZ5G"
                                 frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><a href="">Contador de Pulsos</a></h5>
-                            <p class="fst-italic text-center">En esta actividad, se diseña y prueba un protocolo de comunicación para
-                                un contador de pulsos.
-                                Utilizando dos Arduinos, uno se programa para enviar una cantidad específica de pulsos a
-                                distintas frecuencias,
-                                mientras que el segundo Arduino cuenta los pulsos recibidos y los muestra en el monitor
-                                serial. Los Arduinos se conectan y
-                                calibran usando un osciloscopio para verificar el funcionamiento correcto a frecuencias
-                                de 1, 10, 100 y 1000 pulsos por segundo.
-                                Se requiere una conexión común a tierra entre los dispositivos para la comunicación
-                                efectiva.</p>
+                            <h5 class="card-title"><a href="">Contador de Tiempo</a></h5>
+                            <p class="fst-italic text-center">Esta actividad se centra en desarrollar un protocolo para contar el
+                                tiempo de duración de los pulsos.
+                                Un Arduino genera pulsos con un tiempo en estado alto específico, comprobado con un
+                                osciloscopio. El segundo Arduino mide la
+                                duración de estos pulsos y los muestra en el monitor serial. Además, se realiza la
+                                transmisión de una serie de 4 bits,
+                                iniciando con un bit alto, desde el primer al segundo Arduino, quien los interpreta y
+                                muestra en el monitor serial. La conexión a
+                                tierra entre ambos dispositivos es esencial para la comunicación.</p>
                             <p class="card-text"></p>
                         </div>
                     </div>
@@ -105,54 +104,93 @@
             </div>
         </div>
     </section>
-
     <!-- Code Section -->
     <section class="py-5 text-white">
         <div class="container px-4 px-lg-5 my-5">
             <div class="code-container">
                 <div class="code-section">
                     <h3 class="text-secondary mb-0">Código Parte 1</h3>
-                    <pre class="line-numbers"><code class="language-clike">//CONTADOR DE PULSOS ARDUINO 1
-int cuenta=0;
+                    <pre class="line-numbers"><code class="language-clike">//CONTADOR DE PULSOS ARDUINO 2
+#define DELAY_TIME 10
+
+int cuenta_info = 0, dato = 0;
+String palabra = "";
+
 void setup()
 {
-pinMode(2, INPUT);
-Serial.begin(115200);
+    pinMode(2, INPUT);
+    pinMode(3, INPUT);
+    Serial.begin(115200);
+    Serial.println("Datos:");
 }
 
 void loop()
 {
-if(digitalRead(2)==HIGH)
-{
-    while(digitalRead(2)==HIGH);
-    cuenta++;
-    Serial.println(cuenta);
-}
-}</code></pre>
+    if (digitalRead(2) == HIGH)
+    {
+    // Wait for pin 2 to go LOW, indicating the button is released
+    while (digitalRead(2) == HIGH)
+    {
+        delayMicroseconds(990);
+        cuenta_info++;
+        if (cuenta_info == DELAY_TIME-1)
+        {
+        cuenta_info = 0;
+        dato = digitalRead(3);  // Read the value from pin 3
+        //Serial.println(dato);
+        palabra+=dato;
+        }
+        //Serial.println(cuenta_info);
+    }
+    }
+    if (palabra.length()==5)
+    {
+    if (palabra.charAt(0)=='1')
+    {
+        palabra.remove(0, 1);
+        Serial.println(palabra);
+        palabra="";
+    }
+    else
+    {
+        Serial.println("Error en mensaje");
+        palabra="";
+    }
+    }  
+}                       
+</code></pre>
                 </div>
                 <div class="code-section">
                     <h3 class="text-secondary mb-0">Código Parte 2</h3>
-                    <pre class="line-numbers"><code class="language-clike">//ENVIO DE PULSOS ARDUINO 2
-void pulsos(int cantidad, int frecuencia)
-{
-for(int i=0; i&lt;cantidad; i++)
-{
-    digitalWrite(2, HIGH);
-    delay(1000/frecuencia); 
-    digitalWrite(2, LOW);
-    delay(1000/frecuencia); //el delay es en milisegundos
-}
-}
+                    <pre class="line-numbers"><code class="language-clike">//ENVIO DE PULSOS ARDUINO 1
+#define DELAY_TIME 10
 
+void pulsot(int tiempo,int DATA)
+{
+        digitalWrite(2, HIGH);
+        digitalWrite(3, DATA);
+        delay(tiempo);
+        digitalWrite(2, LOW);
+        digitalWrite(3, LOW);
+        delay(tiempo);
+}
 void setup()
 {
-pinMode(2, OUTPUT);
-pulsos(2000,1000);
+    pinMode(2, OUTPUT);
+    pinMode(3, OUTPUT);
+    delay(1000);
+    
+    pulsot(DELAY_TIME,1);//INICIO
+    pulsot(DELAY_TIME,0);//dato0
+    pulsot(DELAY_TIME,1);//dato1
+    pulsot(DELAY_TIME,1);//dato2
+    pulsot(DELAY_TIME,1);//dato3
+    
 }
-
 void loop()
 {
-}</code></pre>
+}
+</code></pre>
                 </div>
             </div>
         </div>

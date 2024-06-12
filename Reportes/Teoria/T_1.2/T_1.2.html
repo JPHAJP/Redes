@@ -51,7 +51,7 @@
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Práctica 1</h1>
+                <h1 class="display-4 fw-bolder">Práctica 3</h1>
                 <p class="lead fw-normal text-white-50 mb-0">Comunicación entre microcontroladores.</p>
                 <a class="btn btn-primary btn-xl" href="../../../teoria.html">Regresar a Teoría</a>
             </div>
@@ -83,21 +83,19 @@
                 <div class="d-flex align-items-stretch">
                     <div class="card">
                         <div class="card-img">
-                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/8pbPpV1kmNP"
+                            <iframe width="100%" height="500" src="https://www.tinkercad.com/embed/hAjJMffbMSe"
                                 frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><a href="">Contador de Pulsos</a></h5>
-                            <p class="fst-italic text-center">En esta actividad, se diseña y prueba un protocolo de comunicación para
-                                un contador de pulsos.
-                                Utilizando dos Arduinos, uno se programa para enviar una cantidad específica de pulsos a
-                                distintas frecuencias,
-                                mientras que el segundo Arduino cuenta los pulsos recibidos y los muestra en el monitor
-                                serial. Los Arduinos se conectan y
-                                calibran usando un osciloscopio para verificar el funcionamiento correcto a frecuencias
-                                de 1, 10, 100 y 1000 pulsos por segundo.
-                                Se requiere una conexión común a tierra entre los dispositivos para la comunicación
-                                efectiva.</p>
+                            <h5 class="card-title"><a href="">Convertidor a Binario</a></h5>
+                            <p class="fst-italic text-center">Aquí se desarrolla un sistema para convertir valores analógicos a
+                                binario. Un Arduino convierte el valor de un
+                                potenciómetro a un número binario de 8 bits, visualizado en sus pines digitales. Otro
+                                Arduino recibe estos valores binarios, los
+                                convierte a decimal y los muestra en el monitor serial. Esta actividad asegura que los
+                                Arduinos se comuniquen correctamente mediante la
+                                conversión y transferencia de datos entre analógico, binario y decimal, con la conexión
+                                a tierra común necesaria para la comunicación.</p>
                             <p class="card-text"></p>
                         </div>
                     </div>
@@ -108,50 +106,96 @@
 
     <!-- Code Section -->
     <section class="py-5 text-white">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="code-container">
                 <div class="code-section">
                     <h3 class="text-secondary mb-0">Código Parte 1</h3>
                     <pre class="line-numbers"><code class="language-clike">//CONTADOR DE PULSOS ARDUINO 1
-int cuenta=0;
+int pot=0;//el valor del pot empieza en 0
+int potPin = A0;
+String dato = "";
+
 void setup()
 {
-pinMode(2, INPUT);
-Serial.begin(115200);
+    pinMode(2, OUTPUT); //Bit0
+    pinMode(3, OUTPUT); //Bit1
+    pinMode(4, OUTPUT); //Bit2
+    pinMode(5, OUTPUT); //Bit3
+    pinMode(6, OUTPUT); //Bit4
+    pinMode(7, OUTPUT); //Bit5
+    pinMode(8, OUTPUT); //Bit6
+    pinMode(9, OUTPUT); //Bit7
+    Serial.begin(115200);//velocidad de 115200 bits por segundo.
 }
 
 void loop()
 {
-if(digitalRead(2)==HIGH)
-{
-    while(digitalRead(2)==HIGH);
-    cuenta++;
-    Serial.println(cuenta);
+    
+    pot=analogRead(potPin);//lee el estado del potenciometro
+    Serial.println("Valor pot: ");//imprime el valor del pot 
+    Serial.println(pot);
+    pot=map(pot,0,1023,0,255);//cambia los valores del pot de 1023 a 255(8bits)
+    Serial.println("Valor pot convertido: ");//imprime el valor del pot convertido
+    Serial.println(pot);//imprime el valor del pot convertido
+    Serial.println("Valor pot 8 bits: ");//imprime el valor del pot convertido
+    
+    for(int i=2; i&lt;10; i++) //lee del pin 2 al 9
+    {
+    digitalWrite(i,pot%2);//saca el residuo de la division
+    //Serial.print(pot%2);//imprime el residuo
+    dato+=(pot%2);
+    pot=pot/2;//divide el valor del pot  entre 2 para el siguiente bit
+    }
+    reverseString(dato);
+    Serial.print(dato);
+    dato="";
+    Serial.println("");
+    delay(1000);
+    
 }
+
+void reverseString(String &str) 
+{
+    int len = str.length();
+    for (int i = 0; i&lt;len/2; i++) 
+    {
+    char temp = str[i];
+    str[i] = str[len - i - 1];
+    str[len - i - 1] = temp;
+    }
 }</code></pre>
                 </div>
                 <div class="code-section">
                     <h3 class="text-secondary mb-0">Código Parte 2</h3>
                     <pre class="line-numbers"><code class="language-clike">//ENVIO DE PULSOS ARDUINO 2
-void pulsos(int cantidad, int frecuencia)
-{
-for(int i=0; i&lt;cantidad; i++)
-{
-    digitalWrite(2, HIGH);
-    delay(1000/frecuencia); 
-    digitalWrite(2, LOW);
-    delay(1000/frecuencia); //el delay es en milisegundos
-}
-}
+int potencia=1;
+int suma=0;
+int bit;
 
 void setup()
 {
-pinMode(2, OUTPUT);
-pulsos(2000,1000);
+    
+    pinMode(9, INPUT); //Bit0
+    pinMode(8, INPUT); //Bit1
+    pinMode(7, INPUT); //Bit2
+    pinMode(6, INPUT); //Bit3
+    pinMode(5, INPUT); //Bit4
+    pinMode(4, INPUT); //Bit5
+    pinMode(3, INPUT); //Bit6
+    pinMode(2, INPUT); //Bit7
+    Serial.begin(115200);//velocidad de 115200 bits por segundo.
 }
 
 void loop()
 {
+    for(int i=9; i>1; i--) //lee del pin 9 al 2
+    {
+    bit=digitalRead(i); // lee el valor del pin
+    suma=suma +(bit*potencia); 
+    potencia=potencia*2;//eleva la potencia hasta 128
+    }
+    Serial.println(suma); //imprime la suma total
+    suma=0; //reinicia la suma
+    potencia=1; //reinicia la potencia
+    delay(1000);
 }</code></pre>
                 </div>
             </div>
