@@ -52,7 +52,8 @@
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Práctica 3</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Comunicación entre microcontroladores convertidor a binario.</p>
+                <p class="lead fw-normal text-white-50 mb-0">Comunicación entre microcontroladores convertidor a
+                    binario.</p>
                 <a class="btn btn-primary btn-xl" href="../../../teoria.html">Regresar a Teoría</a>
             </div>
         </div>
@@ -63,9 +64,11 @@
             <h3 class="text-secondary mb-0">Descripción</h3>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-6">
-                    <p>Se desarrolla un sistema con dos microcontroladores para convertir señales analógicas en binario. 
-                        El primero codifica la señal de un potenciómetro en un formato binario de 8 bits, y el segundo la transforma a decimal para 
-                        visualizarla. Esto para evaluar los métodos de comunicación que se utilizan en el área de redes digitales.</p>
+                    <p>Se desarrolla un sistema con dos microcontroladores para convertir señales analógicas en binario.
+                        El primero codifica la señal de un potenciómetro en un formato binario de 8 bits, y el segundo
+                        la transforma a decimal para
+                        visualizarla. Esto para evaluar los métodos de comunicación que se utilizan en el área de redes
+                        digitales.</p>
                     <a class="btn btn-primary btn-xl" href="Pract_3.pdf" target="_blank">Instrucciones PDF</a>
                 </div>
                 <div class="col-lg-6">
@@ -88,7 +91,8 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Convertidor a Binario</a></h5>
-                            <p class="fst-italic text-center">Aquí se desarrolla un sistema para convertir valores analógicos a
+                            <p class="fst-italic text-center">Aquí se desarrolla un sistema para convertir valores
+                                analógicos a
                                 binario. Un Arduino convierte el valor de un
                                 potenciómetro a un número binario de 8 bits, visualizado en sus pines digitales. Otro
                                 Arduino recibe estos valores binarios, los
@@ -106,9 +110,10 @@
 
     <!-- Code Section -->
     <section class="py-5 text-white">
-                <div class="code-section">
-                    <h3 class="text-secondary mb-0">Código Parte 1</h3>
-                    <pre class="line-numbers"><code class="language-clike">//CONTADOR DE PULSOS ARDUINO 1
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="code-section">
+                <h3 class="text-secondary mb-0">Código Parte 1</h3>
+                <pre class="line-numbers"><code class="language-clike">//CONTADOR DE PULSOS ARDUINO 1
 int pot=0;//el valor del pot empieza en 0
 int potPin = A0;
 String dato = "";
@@ -162,10 +167,10 @@ void reverseString(String &str)
     str[len - i - 1] = temp;
     }
 }</code></pre>
-                </div>
-                <div class="code-section">
-                    <h3 class="text-secondary mb-0">Código Parte 2</h3>
-                    <pre class="line-numbers"><code class="language-clike">//ENVIO DE PULSOS ARDUINO 2
+            </div>
+            <div class="code-section">
+                <h3 class="text-secondary mb-0">Código Parte 2</h3>
+                <pre class="line-numbers"><code class="language-clike">//ENVIO DE PULSOS ARDUINO 2
 int potencia=1;
 int suma=0;
 int bit;
@@ -197,8 +202,9 @@ void loop()
     potencia=1; //reinicia la potencia
     delay(1000);
 }</code></pre>
-                </div>
             </div>
+        </div>
+        </div>
         </div>
     </section>
 
