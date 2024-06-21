@@ -1,0 +1,311 @@
+body{
+    background-color: #efefef;
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .caja {
+    box-sizing: border-box;
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  a:hover {
+    color: hotpink;
+    font-size: 150%;
+  }
+
+  ul.a {
+    list-style-type: circle;
+  }
+
+  ul.b {
+    list-style-type: square;
+  }
+
+  input[type=text] {
+    border: 2px solid red;
+    border-radius: 4px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+.estilotitulo {
+    color: #ffffff;
+    text-align: center;
+    font-family: Arial;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  .estilo1 {
+    color: #ff2f00;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .estilo2 {
+    color: #3498DB;
+    font-family: 'Times New Roman', serif;
+    font-size: 20px;
+    font-style: italic;
+  }
+
+  .estilo3 {
+    color: #2ECC71;
+    opacity: 0.3;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  .estilo4 {
+    color: #FF5733;
+    background-color: #FFF3E0;
+    border: 2px solid #E74C3C;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    padding-top: 25px;
+    padding-right: 10px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+  }
+
+  .estilo5 {
+    color: #3498DB;
+    background-color: #ECF0F1;
+    border: 1px dashed #2980B9;
+    font-size: 20px;
+    font-family: 'Times New Roman', serif;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  .estilo6 {
+    border: 3px double #27AE60;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+  }
+
+  .estilo7 {
+    color: #9B59B6;
+    background-color: #F5EEF8; 
+    font-size: 22px;
+    font-family: 'Verdana', sans-serif;   
+    font-weight:bolder;
+    text-decoration-line: underline;
+    text-decoration-style: dotted; 
+  }
+
+  .estilo8 {
+    color: #F1C40F;
+    background-color: #FEF9E7;
+    font-size: 24px;
+    font-family: 'Georgia', serif;  
+    text-align: right; 
+  }
+
+  .estilo9 {
+    color: #E67E22;
+    background-color: #FDEDEC;
+    border: 1px dotted #D35400;
+    font-size: 19px;
+    font-family: 'Helvetica', sans-serif;   
+    text-transform: uppercase;
+  }
+
+  .estilo10 {
+    color: #1ABC9C;
+    opacity: 0.5;
+    background-color: #E8F8F5;
+    border: 3px outset #16A085;
+    font-size: 21px;
+    font-family: 'Trebuchet MS', sans-serif;    
+  }
+
+  .estilo11 {
+    color: #E74C3C;
+    border: 5px inset #C0392B;
+    font-size: 18px;
+    font-family: 'Lucida Console', monospace;
+    text-align: center;   
+  }
+
+  .estilo12 {
+    font-size: 17px;
+    font-family: 'Comic Sans MS', cursive; 
+    text-align: right;   
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  .estilo13 {
+    font-size: 20px;
+    font-family: 'Impact', fantasy; 
+    text-decoration-line: underline;
+    text-decoration-color: red;  
+    text-decoration-style: wavy; 
+
+  }
+
+  .estilo14 {
+    color: #F39C12;
+    background-color: #FEF5E7;
+    border: 1px solid #E67E22;
+    font-size: 23px;
+    font-family: 'Palatino Linotype', serif; 
+  }
+
+  .estilo15 {
+    color: #2980B9;
+    opacity: 1;
+    background-color: #D6EAF8;
+    font-size: 22px;
+    font-family: 'Bookman', serif;   
+    text-transform: capitalize
+  }
+
+  .estilo16 {
+    color: #D35400;
+    border: 2px dashed #E67E22;
+    font-size: 19px;
+    font-family: 'Garamond', serif;    
+    text-align: right;
+    font-weight:800;
+  }
+
+  .estilo17 {
+    font-size: 20px;
+    font-family: 'Arial Black', sans-serif;  
+    text-shadow: 2px 2px 5px red;  
+    text-align: center;
+  }
+
+  .estilo18 {
+    color: #8E44AD;
+    background-color: #F4ECF7;
+    border: 5px groove #8E44AD;
+    font-size: 18px;
+    font-family: 'Tahoma', sans-serif;    
+  }
+
+  .estilo19 {
+    font-size: 21px;
+    font-family: 'Perpetua', serif;    
+    text-align: center;
+    text-transform: capitalize
+  }
+
+  .estilo20 {
+    background-color: #F9EBEA;
+    font-size: 23px;
+    font-family: 'Century Gothic', sans-serif;    
+    text-align: right;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+  }
+
+  .estilo21 {
+    color: #7F8C8D;
+    background-color: #F4F6F7;
+    border: 2px ridge #95A5A6;
+    font-size: 20px;
+    font-family: 'Lucida Sans', sans-serif;    
+    text-shadow: 2px 2px red;
+  }
+
+  .estilo22 {
+    color: #E67E22;
+    border: 1px solid #D35400;
+    font-size: 24px;
+    font-family: 'Courier', monospace;    
+    font-weight:initial;
+  }
+
+  .estilo23 {
+    color: #8E44AD;
+    background-color: #F5EEF8;
+    font-size: 22px;
+    font-family: 'Lucida Calligraphy', cursive;   
+    overflow:scroll; 
+    opacity: 0.1;
+  }
+
+  .estilo24 {
+    background-color: #FEF9E7;
+    border: 4px outset #F1C40F;
+    font-size: 21px;
+    font-family: 'Franklin Gothic Medium', sans-serif;  
+    text-transform: lowercase;  
+    text-shadow: 4px 2px red;
+  }
+
+  .estilo25 {
+    color: #1ABC9C;
+    background-color: #E8F8F5;
+    border: 1px dotted #16A085;
+    font-size: 20px;
+    font-family: 'Gill Sans', sans-serif;    
+  }
+
+  .estilo26 {
+    font-size: 18px;
+    font-family: 'Helvetica', sans-serif;   
+    text-transform: lowercase;
+    text-shadow: 2px 2px rgb(0, 255, 213);
+  }
+
+  .estilo27 {
+    color: #34495E;
+    background-color: #EBEDEF;
+    border: 3px inset #2C3E50;
+    font-size: 23px;
+    font-family: 'Arial', sans-serif;  
+    text-align: center; 
+  }
+
+  .estilo28 {
+    color: #16A085;
+    border: 2px ridge #1ABC9C;
+    font-size: 22px;
+    font-family: 'Georgia', serif;
+  }
+
+  .estilo29 {
+    background-color: #E9F7EF;
+    font-size: 20px;
+    font-family: 'Garamond', serif;
+    font-weight:lighter;
+    text-indent: 50px;
+  }
+  .estilo30 {
+    color: #9B59B6;
+    font-family: 'Verdana', sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    overflow: scroll;
+    
+  }
