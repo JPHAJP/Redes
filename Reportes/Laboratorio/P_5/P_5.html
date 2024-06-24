@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es-MX"> <!-- Cambiar a español mexicano -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Redes Digitales</title>
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Simple line icons-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+    rel="stylesheet" />
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../../../Recursos\Archivos\styles.css">
+  <!--Background color-->
+  <style>
+    body {
+      background-color: #2f3132;
+    }
+  </style>
+  <!-- Prism CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.css"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand"><a>Menu</a></li>
+      <li class="sidebar-nav-item"><a href="../../../index.html#page-top">Inicio</a></li>
+      <li class="sidebar-nav-item"><a href="../../../index.html#about">Nosotros</a></li>
+      <li class="sidebar-nav-item"><a href="../../../index.html#portfolio">Portfolio</a></li>
+      <li class="sidebar-nav-item"><a href="../../../index.html#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">Práctica 5</h1>
+        <p class="lead fw-normal text-white-50 mb-0">Sensores Digitales, Analógicos e Inteligentes.</p>
+        <a class="btn btn-primary btn-xl" href="../../../laboratorio.html">Regresar a Laboratorio</a>
+      </div>
+    </div>
+  </header>
+  <!--Info-->
+  <section class="py-5 text-white">
+    <div class="container px-4 px-lg-5 my-5">
+      <h3 class="text-secondary mb-0">Descripción</h3>
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-lg-6">
+          <p>En esta práctica se explora el funcionamiento de diferentes tipos de sensores—digitales, analógicos e
+            inteligentes—usando el módulo NodeMCU
+            ESP32. Conocer e identificar las características y aplicaciones específicas de cada sensor, además de
+            aprender a integrarlos
+            con el módulo ESP32 para leer y procesar datos sensoriales. La práctica incluye la configuración de cada
+            tipo de sensor, la programación
+            del módulo para recibir y analizar la información de los sensores.</p>
+          <a class="btn btn-primary btn-xl" href="P_5.pdf" target="_blank">Instrucciones PDF</a>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-fluid" width="30%" height="auto"
+            src="https://joy-it.net/files/files/Produkte/SBC-NodeMCU/SBC-NodeMCU-1.png" alt="...">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- List-->
+    <section class="py-5 text-white">
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="code-container">
+          <div class="code-section">
+            <h3 class="text-secondary mb-0">Código Parte 1</h3> <br>
+            <section id="events" class="events section">
+              <div class="container" data-aos="fade-up" >
+                <div class="row" >
+                  <div class="d-flex align-items-stretch" >r
+                    <div class="card" style="width: 100%;">
+                      <div class="card-img">
+                        <video width="100%" height="auto" src="BOTON.mp4" controls></video>
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title"><a href="#">Botón</a></h5>
+                        <p class="fst-italic text-center text-black">Se detecta el status del botón y se enciende un led.</p>
+                        <a class="btn btn-primary btn-xl" href="../P_6/P_6.html#COD1">Ver armado</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <pre class="line-numbers"><code class="language-clike">//BOTON
+int boton = 32;
+int led = 33;
+
+int status_boton = 0;
+  
+void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(boton, INPUT);
+}
+
+void loop(){
+  status_boton = digitalRead(boton);
+  
+  if (status_boton == 1){
+    digitalWrite(led, HIGH);
+  }
+  else{
+    digitalWrite(led, LOW);r
+  }
+}</code></pre>
+          </div>
+          <iframe src="https://wokwi.com/projects/400537310641885185" width="100%" height="500px"></iframe>
+          <div class="code-section">
+            <h3 class="text-secondary mb-0">Código Parte 2</h3><br>
+            <section id="events" class="events section">
+              <div class="container" data-aos="fade-up">
+                <div class="row">
+                  <div class="d-flex align-items-stretch">
+                    <div class="card" style="width: 100%;">
+                      <div class="card-img">
+                        <video width="100%" height="auto" src="POT.mp4" controls></video>
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title"><a href="">Potenciómetro</a></h5>
+                        <p class="fst-italic text-center text-black">Se detecta la resistencia que tiene el portenciómetro.</p>
+                        <a class="btn btn-primary btn-xl" href="../P_6/P_6.html#COD2">Ver armado</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <pre class="line-numbers"><code class="language-clike">//POT
+int pot = 32;
+int led = 33;
+
+int pot_value = 0;
+
+void setup(){
+  pinMode(led, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop(){
+  pot_value = analogRead(pot);
+  Serial.println(pot_value);
+  
+  if (pot_value &ilt= 2048){
+    digitalWrite(led, HIGH);
+  }
+  else{
+    digitalWrite(led, LOW);
+  }
+}</code></pre>
+          </div>
+
+          <iframe src="https://wokwi.com/projects/400540110752130049" width="100%" height="500px"></iframe>
+
+
+          <div class="code-section">
+            <h3 class="text-secondary mb-0">Código Parte 3</h3><br>
+            <section id="events" class="events section">
+              <div class="container" data-aos="fade-up">
+                <div class="row">
+                  <div class="d-flex align-items-stretch">
+                    <div class="card" style="width: 100%;">
+                      <div class="card-img">
+                        <video width="100%" height="auto" src="DHT.mp4" controls></video>
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title"><a href="">DHT22</a></h5>
+                        <p class="fst-italic text-center text-black">Se detecta la humedad y la temperatura mediate un sensor tipo DHT y se imprime en serial.</p>
+                        <a class="btn btn-primary btn-xl" href="../P_6/P_6.html#COD3">Ver armado</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <pre class="line-numbers"><code class="language-clike">//DHT22
+#include &ltDHT.h>
+
+DHT dht(32,DHT22);
+int led = 33;
+int led2 = 25;
+
+int temp_value = 0;
+int hum_value = 0;
+
+
+void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(led2, OUTPUT);
+
+  dht.begin();
+  Serial.begin(115200);
+}
+
+void loop(){
+  delay(1000);
+  temp_value=dht.readTemperature();
+  hum_value=dht.readHumidity();
+
+  Serial.print("Temperatura: ");
+  Serial.println(temp_value);
+  Serial.print("Humedad: ");
+  Serial.println(hum_value);
+
+
+  
+  if (hum_value >= 50){
+    digitalWrite(led, HIGH);
+  }
+  else{
+    digitalWrite(led, LOW);
+  }
+  if (temp_value >= 23){
+    digitalWrite(led2, HIGH);
+  }
+  else{
+    digitalWrite(led2, LOW);
+  }
+}</code></pre>
+          </div>
+
+          <iframe src="https://wokwi.com/projects/400541603092968449" width="100%" height="500px"></iframe>
+
+          <div class="code-section">
+            <h3 class="text-secondary mb-0">Código Parte 4</h3><br>
+            <section id="events" class="events section">
+              <div class="container" data-aos="fade-up">
+                <div class="row">
+                  <div class="d-flex align-items-stretch">
+                    <div class="card" style="width: 100%;">
+                      <div class="card-img">
+                        <video width="100%" height="auto" src="SLIDER.mp4" controls></video>
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title"><a href="">Slider</a></h5>
+                        <p class="fst-italic text-center text-black">Se detecta la resistencia que tiene el slider y se imprime via serial.</p>
+                        <a class="btn btn-primary btn-xl" href="../P_6/P_6.html#COD4">Ver armado</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <pre class="line-numbers"><code class="language-clike"> //Slider
+int sld = 32;
+int led = 33;
+
+int sld_value = 0;
+
+void setup(){
+  pinMode(led, OUTPUT);
+  Serial.begin(115200); 
+}
+
+void loop(){
+  sld_value = analogRead(sld);
+  Serial.println(sld_value);
+  
+  if (sld_value >= 2048){
+    digitalWrite(led, HIGH);
+  }
+  else{
+    digitalWrite(led, LOW);
+  }
+}</code></pre>
+          </div>
+          <iframe src="https://wokwi.com/projects/400542705018514433" width="100%" height="500px"></iframe>
+          <div class="code-section">
+            <h3 class="text-secondary mb-0">Código Parte 5</h3><br>
+            <section id="events" class="events section">
+              <div class="container" data-aos="fade-up">
+                <div class="row">
+                  <div class="d-flex align-items-stretch">
+                    <div class="card" style="width: 100%;">
+                      <div class="card-img">
+                        <video width="100%" height="auto" src="PIR.mp4" controls></video>
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title"><a href="">PIR</a></h5>
+                        <p class="fst-italic text-center text-black">Se detecta si hay movimiento mediante un sensor PIR y se enciende un led.</p>
+                        <a class="btn btn-primary btn-xl" href="../P_6/P_6.html#COD5">Ver armado</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <pre class="line-numbers"><code class="language-clike">//PIR
+int pir = 32;
+int led = 33;
+
+int status_pir = 0;
+
+void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(pir, INPUT);
+}
+
+void loop(){
+  status_pir = digitalRead(pir);
+  
+  if (status_pir == 1){
+    digitalWrite(led, HIGH);
+  }
+  else{
+    digitalWrite(led, LOW);
+  }
+}</code></pre>
+          </div>
+
+          <iframe src="https://wokwi.com/projects/400542395982169089" width="100%" height="500px"></iframe>
+
+          <div class="code-section">
+            <h3 class="text-secondary mb-0">Código Parte 6</h3><br>
+            <section id="events" class="events section">
+              <div class="container" data-aos="fade-up">
+                <div class="row">
+                  <div class="d-flex align-items-stretch">
+                    <div class="card" style="width: 100%;">
+                      <div class="card-img">
+                        <video width="100%" height="auto" src="ULTRA.mp4" controls></video>
+                      </div>
+                      <div class="card-rbody">
+                        <h5 class="card-title"><a href="">Ultrasónico</a></h5>
+                        <p class="fst-italic text-center text-black">Se obtiene el dato de la distancia mediante un sendor de movimiento ultrasónico 
+                          y el dato se agrega via serial.</p>
+                          <a class="btn btn-primary btn-xl" href="../P_6/P_6.html#COD6">Ver armado</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <pre class="line-numbers"><code class="language-clike">//ULTRASONICO
+#include &ltNewPing.h>
+
+  #define PIN_TRIG 26
+  #define PIN_ECHO 27
+  
+  int ledV  = 32;
+  int ledA = 33;
+  int ledR = 25;
+  
+  
+  
+  void setup(){
+    pinMode(ledV, OUTPUT);
+    pinMode(ledA, OUTPUT);
+    pinMode(ledR, OUTPUT);
+  
+    Serial.begin(115200);
+    pinMode(PIN_TRIG, OUTPUT);
+    pinMode(PIN_ECHO, INPUT);
+  }
+  
+  void loop(){
+    delay(1000);
+    digitalWrite(PIN_TRIG, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(PIN_TRIG, LOW);
+  
+    long duration = pulseIn(PIN_ECHO, HIGH);
+    int distance = duration / 58;
+    Serial.print("Distance in: ");
+    Serial.println(distance);
+    
+    if (distance > 200) {
+      digitalWrite(ledV, HIGH);
+      digitalWrite(ledA, LOW);
+      digitalWrite(ledR, LOW);
+    } else if (distance &lt= 200 && distance > 2) {
+      digitalWrite(ledV, LOW);
+      digitalWrite(ledA, HIGH);
+      digitalWrite(ledR, LOW);
+    } else if (distance &lt= 2) {
+      digitalWrite(ledV, LOW);
+      digitalWrite(ledA, LOW);
+      digitalWrite(ledR, HIGH);
+    } else {
+      digitalWrite(ledV, LOW);
+      digitalWrite(ledA, LOW);
+      digitalWrite(ledR, LOW);
+    }
+  }</code></pre>
+          </div>
+
+          <iframe src="https://wokwi.com/projects/400548126562927617" width="100%" height="500px"></iframe>
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container px-4 px-lg-5"></div>
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3"
+            href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
+              class="icon-social-linkedin"></i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3"
+            href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
+              class="icon-social-instagram"></i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
+              class="icon-social-github"></i></a>
+        </li>
+      </ul>
+      <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
+      <p>Universidad Iberoamericana Puebla.</p>
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
+          property="dct:title">Redes
+          Digitales</span> by <span property="cc:attributionName">José Pablo Hernández & Dirk Anton Topcic</span> is
+        licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+          rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../../../Recursos\Archivos\scripts.js"></script>
+    <!-- Prism.js script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <!-- Prism.js plugin for line numbers -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Prism.js plugin for toolbar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+    <!-- Prism.js plugin for copy to clipboard functionality -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+</body>
+
+</html>
