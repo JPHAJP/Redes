@@ -22,15 +22,15 @@
   <!-- Prism CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css"
-      rel="stylesheet" />
+    rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.css"
-      rel="stylesheet" />
+    rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
   <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -62,7 +62,9 @@
       <h3 class="text-secondary mb-0">Descripción</h3>
       <div class="row gx-4 gx-lg-5">
         <div class="col-lg-6">
-          <p>AAA.</p>
+          <p>En esta práctica se busca poder modificar los datos guardados en un servidor mediante un script en PHP, este debe de ser 
+            accesible desde el navegador como desde el NodeMCU ESP32 para poder realizar programas que accedan al servicio y hagan 
+            modificaciones. Este servicio se alojará en una red local y en un servicio proporcionado por Replit.</p>
           <a class="btn btn-primary btn-xl" href="P_7.pdf" target="_blank">Instrucciones PDF</a>
         </div>
         <div class="col-lg-6">
@@ -70,7 +72,7 @@
             src="https://joy-it.net/files/files/Produkte/SBC-NodeMCU/SBC-NodeMCU-1.png" alt="...">
         </div>
       </div>
-      <br><embed src="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/" width="100%" height="500px">
+      <br><a class="btn btn-primary btn-xl" style="width: 100%;" href="index.php">Descargar página servidor php</a>
     </div>
   </section>
   <!-- Events Section -->
@@ -80,25 +82,26 @@
         <div class="col-md-6 d-flex align-items-stretch">
           <div class="card">
             <div class="card-img">
-              <video width="100%" height="auto" src="Simulacion.mp4" controls></video>
+              <video width="100%" height="auto" src="Servidor local PHP.mp4" controls></video>
             </div>
             <div class="card-body">
-              <h5 class="card-title"><a href="">Simulacion de ESP32</a></h5>
-              <p class="fst-italic text-center">El video muestra una simulacion del microcontrolador cumpliendo con las
-                funciones programadas, una página para revisar los pines y su programación y la configuración de arduino
-                IDE para programas el microcontrolador.</p>
+              <h5 class="card-title"><a href="">Ejemplos en red local con xampp</a></h5>
+              <p class="fst-italic text-center">El video muestra la creación de un servidor php para recibir datos
+                mediante el uso de xampp para levantar un servidor local. Este contempla el uso de un navegador web y posteriormente con el
+                NodeMCU ESP32</p>
             </div>
           </div>
         </div>
         <div class="col-md-6 d-flex align-items-stretch">
           <div class="card">
             <div class="card-img">
-              <video width="100%" height="auto" src="Todo.mp4" controls></video>
+              <video width="100%" height="auto" src="Servidor Web PHP.mp4" controls></video>
             </div>
             <div class="card-body">
-              <h5 class="card-title"><a href="">Video de ESP32</a></h5>
-              <p class="fst-italic text-center">El video muestra al microcontrolador cumpliendo con las funciones
-                programadas.</p>
+              <h5 class="card-title"><a href="">Ejemplos en servicio web con Replit</a></h5>
+              <p class="fst-italic text-center">El video muestra la creación de un servidor php para recibir datos
+                mediante el servicio de Replit para enviarlos a internet. Este contempla el uso de un navegador web y
+                posteriormente con el NodeMCU ESP32.</p>
             </div>
           </div>
         </div>
@@ -109,203 +112,137 @@
   <section>
     <section class="py-5 text-white">
       <div class="container px-4 px-lg-5 my-5">
-          <div class="code-container">
-              <div class="code-section">
-                  <h3 class="text-secondary mb-0">Código Parte 1</h3>
-                  <pre class="line-numbers"><code class="language-clike">//ENCENDIDO PROGRAMADO
-void setup() {
-  pinMode(2, OUTPUT);
-}
-void loop() {
-  delay(500);
-  digitalWrite(2, HIGH);
-}
-</code></pre>
-              </div>
-  <embed src="https://wokwi.com/projects/401510190196853761" width="100%" height="500px">
+        <div class="code-container">
+          <div class="code-section">
+            <h3 class="text-secondary mb-0">Código ESP32</h3>
+            <pre class="line-numbers"><code class="language-clike">//ENVIO DE DATOS A UN SERVIDOR PHP
+#include &ltWiFi.h>
+#include &ltHTTPClient.h>
 
-    <div class="code-section">
-      <h3 class="text-secondary mb-0">Código Parte 2</h3>
-      <pre class="line-numbers"><code class="language-clike">//APAGADO PROGRAMADO
-void setup() {
-pinMode(2, OUTPUT);
-}
-void loop() {
-delay(500);
-digitalWrite(2, LOW);
-}</code></pre>
-  </div>
+// Configuración de la red WiFi
+const char* ssid = "SSID";          // Reemplaza con el SSID de tu red WiFi
+const char* password = "Password";  // Reemplaza con la contraseña de tu red WiFi
 
-  <embed src="https://wokwi.com/projects/401511904784359425" width="100%" height="500px">
+// URL del servidor PHP en tu localhost con XAMPP
+const char* serverUrl = "http://192.168.68.114?apikey=123";
 
-              <div class="code-section">
-                  <h3 class="text-secondary mb-0">Código Parte 3</h3>
-                  <pre class="line-numbers"><code class="language-clike">//SECCION PARPADEO
-void setup() {
-  pinMode(2, OUTPUT);
-}
-void loop() {
-  digitalWrite(2, HIGH);
-  delay(500);
-  digitalWrite(2, LOW);
-  delay(500);
-}</code></pre>
-              </div>
-
-              <embed src="https://wokwi.com/projects/401512764884101121" width="100%" height="500px">
-
-              <div class="code-section">
-                <h3 class="text-secondary mb-0">Código Parte 4</h3>
-                <pre class="line-numbers"><code class="language-clike"> //SECCION BOOTON ON OFF
-int button_1=0;
-void setup() {
-pinMode(2, OUTPUT);
-pinMode(4, INPUT);
-}
-void loop() {
-button_1=digitalRead(4);
-if (button_1==1){
-  digitalWrite(2, HIGH);
-}
-else{
-  digitalWrite(2, LOW);
-}
-}</code></pre>
-            </div>
-
-            <embed src="https://wokwi.com/projects/401514139758127105" width="100%" height="500px">
-
-              <div class="code-section">
-                <h3 class="text-secondary mb-0">Código Parte 5</h3>
-                <pre class="line-numbers"><code class="language-clike">//SECCION BOTTON 1 ON BOTTON 2 OFF
-int button_1=0, button_2=0;
+String valueA = "";
+String valueB = "";
+bool waitingForA = true;
 
 void setup() {
-  pinMode(2, OUTPUT);
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
-}
+  Serial.begin(115200);
+  delay(100);
 
-void loop() {
-  button_1=digitalRead(4);
-  button_2=digitalRead(5);
-  if (button_1==1){
-    digitalWrite(2, HIGH);
+  // Conectar a la red WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Conectando a WiFi...");
   }
-  
-  if (button_2==1){
-    digitalWrite(2, LOW);
-  }
-}</code></pre>
-            </div>
+  Serial.println("Conectado a WiFi");
 
-            <embed src="https://wokwi.com/projects/401514772041088001" width="100%" height="500px">
-
-            <div class="code-section">
-              <h3 class="text-secondary mb-0">Código Parte 6</h3>
-              <pre class="line-numbers"><code class="language-clike">//SECCION OR
-int button_1=0, button_2=0;
-
-void setup() {
-  pinMode(2, OUTPUT);
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
+  // Solicitar el valor de A
+  Serial.println("Ingrese el valor de A:");
 }
 
 void loop() {
-  button_1=digitalRead(4);
-  button_2=digitalRead(5);
-  if (button_1==1||button_2==1){
-    digitalWrite(2, HIGH);
-  }
-  else{
-    digitalWrite(2, LOW);
-  }
-}</code></pre>
-            </div>
+  if (Serial.available()) {
+    String input = Serial.readStringUntil('\n');
+    input.trim();
 
-            <embed src="https://wokwi.com/projects/401515096419135489" width="100%" height="500px">
+    if (waitingForA) {
+      valueA = input;
+      waitingForA = false;
+      Serial.println("Ingrese el valor de B:");
+    } else {
+      valueB = input;
 
-            <div class="code-section">
-              <h3 class="text-secondary mb-0">Código Parte 7</h3>
-              <pre class="line-numbers"><code class="language-clike">//SECCION AND
-int button_1=0, button_2=0;
+      // Construir la URL con los valores de A y B
+      String url = String(serverUrl) + "&A=" + valueA + "&B=" + valueB;
 
-void setup() {
-  pinMode(2, OUTPUT);
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
-}
+      Serial.println("URL: " + url);
 
-void loop() {
-  button_1=digitalRead(4);
-  button_2=digitalRead(5);
-  if (button_1==1&&button_2==1){
-    digitalWrite(2, HIGH);
-  }
-  else{
-    digitalWrite(2, LOW);
+      // Hacer la solicitud HTTP
+      if (WiFi.status() == WL_CONNECTED) {
+        HTTPClient http;
+        http.begin(url);
+        int httpCode = http.GET();
+        if (httpCode > 0) {
+          Serial.printf("Código de respuesta HTTP: %d\n", httpCode);
+          //String payload = http.getString();
+          //Serial.println("Respuesta: " + payload);
+        } else {
+          Serial.printf("Error en la solicitud HTTP: %s\n", http.errorToString(httpCode).c_str());
+        }
+        http.end();
+      } else {
+        Serial.println("WiFi no está conectado");
+      }
+
+      // Reiniciar para pedir los valores nuevamente
+      waitingForA = true;
+      Serial.println("Ingrese el valor de A:");
+    }
   }
 }</code></pre>
           </div>
-
-          <embed src="https://wokwi.com/projects/401515804439696385" width="100%" height="500px">
-
-          </div>
+        </div>
       </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container px-4 px-lg-5"></div>
-    <ul class="list-inline mb-5">
-      <li class="list-inline-item">
-        <a class="social-link rounded-circle text-white mr-3"
-          href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
-            class="icon-social-linkedin"></i></a>
-      </li>
-      <li class="list-inline-item">
-        <a class="social-link rounded-circle text-white mr-3"
-          href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
-            class="icon-social-instagram"></i></a>
-      </li>
-      <li class="list-inline-item">
-        <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
-            class="icon-social-github"></i></a>
-      </li>
-    </ul>
-    <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
-    <p>Universidad Iberoamericana Puebla.</p>
-    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Redes
-        Digitales</span> by <span property="cc:attributionName">José Pablo Hernández & Dirk Anton Topcic</span> is
-      licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
-        rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-          src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-          src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-          src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-          src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container px-4 px-lg-5"></div>
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3"
+            href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
+              class="icon-social-linkedin"></i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3"
+            href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
+              class="icon-social-instagram"></i></a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
+              class="icon-social-github"></i></a>
+        </li>
+      </ul>
+      <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
+      <p>Universidad Iberoamericana Puebla.</p>
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
+          property="dct:title">Redes
+          Digitales</span> by <span property="cc:attributionName">José Pablo Hernández & Dirk Anton Topcic</span> is
+        licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+          rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+      </div>
+    </footer>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Core theme JS-->
-  <script src="../../../Recursos\Archivos\scripts.js"></script>
-  <!-- Prism.js script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-  <!-- Prism.js plugin for line numbers -->
-  <script
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../../../Recursos\Archivos\scripts.js"></script>
+    <!-- Prism.js script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <!-- Prism.js plugin for line numbers -->
+    <script
       src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
-  <!-- Prism.js plugin for toolbar -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
-  <!-- Prism.js plugin for copy to clipboard functionality -->
-  <script
+    <!-- Prism.js plugin for toolbar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+    <!-- Prism.js plugin for copy to clipboard functionality -->
+    <script
       src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 </body>
 
