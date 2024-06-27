@@ -62,17 +62,16 @@
       <h3 class="text-secondary mb-0">Descripción</h3>
       <div class="row gx-4 gx-lg-5">
         <div class="col-lg-6">
-          <p>En esta práctica se busca poder modificar los datos guardados en un servidor mediante un script en PHP, este debe de ser 
-            accesible desde el navegador como desde el NodeMCU ESP32 para poder realizar programas que accedan al servicio y hagan 
-            modificaciones. Este servicio se alojará en una red local y en un servicio proporcionado por Replit.</p>
-          <a class="btn btn-primary btn-xl" href="Opcional_PRÁCTICA 9 Red Local.pdf" target="_blank">Instrucciones PDF</a>
+          <p>En esta práctica se busca poder conocer e identificar los pasos para poder configurar una red local y
+            accesar a los recursos de uno de los equipos en la red.</p>
+          <a class="btn btn-primary btn-xl" href="Opcional_PRÁCTICA 9 Red Local.pdf" target="_blank">Instrucciones
+            PDF</a>
         </div>
         <div class="col-lg-6">
-          <img class="img-fluid" width="30%" height="auto"
-            src="https://joy-it.net/files/files/Produkte/SBC-NodeMCU/SBC-NodeMCU-1.png" alt="...">
+          <img class="img-fluid" width="70%" height="auto"
+            src="https://www.globenetcorp.com/wp-content/uploads/2016/01/JUE_01_1.gif" alt="...">
         </div>
       </div>
-      <br><a class="btn btn-primary btn-xl" style="width: 100%;" href="index.php">Descargar página servidor php</a>
     </div>
   </section>
   <!-- Events Section -->
@@ -82,168 +81,104 @@
         <div class="col-md-6 d-flex align-items-stretch">
           <div class="card">
             <div class="card-img">
-              <video width="100%" height="auto" src="Servidor local PHP.mp4" controls></video>
+              <video width="100%" height="auto" src="Wifi.mp4" controls></video>
             </div>
             <div class="card-body">
-              <h5 class="card-title"><a href="">Ejemplos en red local con xampp</a></h5>
-              <p class="fst-italic text-center">El video muestra la creación de un servidor php para recibir datos
-                mediante el uso de xampp para levantar un servidor local. Este contempla el uso de un navegador web y posteriormente con el
-                NodeMCU ESP32</p>
+              <h5 class="card-title"><a href="">Ejemplo en red local con conexión inalámbrica</a></h5>
+              <p class="fst-italic text-center">El video muestra la creación de un servidor web para ser visualizado en
+                la red de la universidad mediante dispositivos inalámbricos. En este paso resulto complicado enconrar
+                computadoras que tuvieran compunicación ya que la red se encuentra segmentada (una conexión entre
+                computadoras cableadas e inalámbricas en la red universitaria fué imposible).</p>
             </div>
           </div>
         </div>
         <div class="col-md-6 d-flex align-items-stretch">
           <div class="card">
             <div class="card-img">
-              <video width="100%" height="auto" src="Servidor Web PHP.mp4" controls></video>
+              <video width="100%" height="auto" src="Cableado.mp4" controls></video>
             </div>
             <div class="card-body">
-              <h5 class="card-title"><a href="">Ejemplos en servicio web con Replit</a></h5>
-              <p class="fst-italic text-center">El video muestra la creación de un servidor php para recibir datos
-                mediante el servicio de Replit para enviarlos a internet. Este contempla el uso de un navegador web y
-                posteriormente con el NodeMCU ESP32.</p>
+              <h5 class="card-title"><a href="">Ejemplo en red local con conexión alámbrica</a></h5>
+              <p class="fst-italic text-center">El video muestra la creación de un servidor web para ser visualizado en
+                la red de la universidad mediante dispositivos conectados mediante cableado a la red.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-  </section>
-  <section>
-    <section class="py-5 text-white">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="code-container">
-          <div class="code-section">
-            <h3 class="text-secondary mb-0">Código ESP32</h3>
-            <pre class="line-numbers"><code class="language-clike">//ENVIO DE DATOS A UN SERVIDOR PHP
-#include &ltWiFi.h>
-#include &ltHTTPClient.h>
-
-// Configuración de la red WiFi
-const char* ssid = "SSID";          // Reemplaza con el SSID de tu red WiFi
-const char* password = "Password";  // Reemplaza con la contraseña de tu red WiFi
-
-// URL del servidor PHP en tu localhost con XAMPP
-const char* serverUrl = "http://192.168.68.114?apikey=123";
-
-String valueA = "";
-String valueB = "";
-bool waitingForA = true;
-
-void setup() {
-  Serial.begin(115200);
-  delay(100);
-
-  // Conectar a la red WiFi
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Conectando a WiFi...");
-  }
-  Serial.println("Conectado a WiFi");
-
-  // Solicitar el valor de A
-  Serial.println("Ingrese el valor de A:");
-}
-
-void loop() {
-  if (Serial.available()) {
-    String input = Serial.readStringUntil('\n');
-    input.trim();
-
-    if (waitingForA) {
-      valueA = input;
-      waitingForA = false;
-      Serial.println("Ingrese el valor de B:");
-    } else {
-      valueB = input;
-
-      // Construir la URL con los valores de A y B
-      String url = String(serverUrl) + "&A=" + valueA + "&B=" + valueB;
-
-      Serial.println("URL: " + url);
-
-      // Hacer la solicitud HTTP
-      if (WiFi.status() == WL_CONNECTED) {
-        HTTPClient http;
-        http.begin(url);
-        int httpCode = http.GET();
-        if (httpCode > 0) {
-          Serial.printf("Código de respuesta HTTP: %d\n", httpCode);
-          //String payload = http.getString();
-          //Serial.println("Respuesta: " + payload);
-        } else {
-          Serial.printf("Error en la solicitud HTTP: %s\n", http.errorToString(httpCode).c_str());
-        }
-        http.end();
-      } else {
-        Serial.println("WiFi no está conectado");
-      }
-
-      // Reiniciar para pedir los valores nuevamente
-      waitingForA = true;
-      Serial.println("Ingrese el valor de A:");
-    }
-  }
-}</code></pre>
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="d-flex align-items-stretch">
+          <div class="card" style="width: 70%; margin: 2%; margin-left: 15%;">
+            <div class="card-img">
+              <video width="100%" height="auto" src="Cableado_Directo.mp4" controls></video>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="">Ejemplo en red local con conexión alámbrica computadora a
+                  computadora</a></h5>
+              <p class="fst-italic text-center">El video muestra la creación de un servidor web para ser visualizado; se
+                realiza una configuración IP del servidor web y del cliente ya que es una conexión punto a punto y se
+                establece una IP manualmente (para el servidor web 192.168.0.1 y para el cliente 192.168.0.2).</p>
+              <p class="card-text"></p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer text-center">
-      <div class="container px-4 px-lg-5"></div>
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3"
-            href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
-              class="icon-social-linkedin"></i></a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3"
-            href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
-              class="icon-social-instagram"></i></a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
-              class="icon-social-github"></i></a>
-        </li>
-      </ul>
-      <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
-      <p>Universidad Iberoamericana Puebla.</p>
-      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
-          property="dct:title">Redes
-          Digitales</span> by <span property="cc:attributionName">José Pablo Hernández & Dirk Anton Topcic</span> is
-        licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
-          rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
-      </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container px-4 px-lg-5"></div>
+    <ul class="list-inline mb-5">
+      <li class="list-inline-item">
+        <a class="social-link rounded-circle text-white mr-3"
+          href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
+            class="icon-social-linkedin"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a class="social-link rounded-circle text-white mr-3"
+          href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
+            class="icon-social-instagram"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
+            class="icon-social-github"></i></a>
+      </li>
+    </ul>
+    <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
+    <p>Universidad Iberoamericana Puebla.</p>
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Redes
+        Digitales</span> by <span property="cc:attributionName">José Pablo Hernández & Dirk Anton Topcic</span> is
+      licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+        rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+    </div>
+  </footer>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="../../../Recursos\Archivos\scripts.js"></script>
-    <!-- Prism.js script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <!-- Prism.js plugin for line numbers -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <!-- Prism.js plugin for toolbar -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
-    <!-- Prism.js plugin for copy to clipboard functionality -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="../../../Recursos\Archivos\scripts.js"></script>
+  <!-- Prism.js script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+  <!-- Prism.js plugin for line numbers -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!-- Prism.js plugin for toolbar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+  <!-- Prism.js plugin for copy to clipboard functionality -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 </body>
 
 </html>

@@ -62,188 +62,233 @@
       <h3 class="text-secondary mb-0">Descripción</h3>
       <div class="row gx-4 gx-lg-5">
         <div class="col-lg-6">
-          <p>En esta práctica se busca poder modificar los datos guardados en un servidor mediante un script en PHP, este debe de ser 
-            accesible desde el navegador como desde el NodeMCU ESP32 para poder realizar programas que accedan al servicio y hagan 
-            modificaciones. Este servicio se alojará en una red local y en un servicio proporcionado por Replit.</p>
-          <a class="btn btn-primary btn-xl" href="Opcional_PRÁCTICA 8 Cable de red (Presencial).pdf" target="_blank">Instrucciones PDF</a>
+          <p>En esta práctica tiene como objetivo aprender de manera práctica a manejar las conexiones de cable
+            ethernet. Por ese motivo
+            se armaron con conectores RJ45, cable ethernet CAT6 y pinzas ponchadoras un cableado ethernet tanto directo
+            como cruzado.</p>
+          <a class="btn btn-primary btn-xl" href="Opcional_PRÁCTICA 8 Cable de red (Presencial).pdf"
+            target="_blank">Instrucciones PDF</a>
         </div>
         <div class="col-lg-6">
-          <img class="img-fluid" width="30%" height="auto"
-            src="https://joy-it.net/files/files/Produkte/SBC-NodeMCU/SBC-NodeMCU-1.png" alt="...">
-        </div>
-      </div>
-      <br><a class="btn btn-primary btn-xl" style="width: 100%;" href="index.php">Descargar página servidor php</a>
-    </div>
-  </section>
-  <!-- Events Section -->
-  <section id="events" class="events section">
-    <div class="container" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="card">
-            <div class="card-img">
-              <video width="100%" height="auto" src="Servidor local PHP.mp4" controls></video>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><a href="">Ejemplos en red local con xampp</a></h5>
-              <p class="fst-italic text-center">El video muestra la creación de un servidor php para recibir datos
-                mediante el uso de xampp para levantar un servidor local. Este contempla el uso de un navegador web y posteriormente con el
-                NodeMCU ESP32</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="card">
-            <div class="card-img">
-              <video width="100%" height="auto" src="Servidor Web PHP.mp4" controls></video>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><a href="">Ejemplos en servicio web con Replit</a></h5>
-              <p class="fst-italic text-center">El video muestra la creación de un servidor php para recibir datos
-                mediante el servicio de Replit para enviarlos a internet. Este contempla el uso de un navegador web y
-                posteriormente con el NodeMCU ESP32.</p>
-            </div>
-          </div>
+          <img class="img-fluid" width="60%" height="auto"
+            src="https://i.insider.com/60413d6bb46d720018b04f35?width=1136&format=jpeg" alt="...">
         </div>
       </div>
     </div>
-
   </section>
-  <section>
-    <section class="py-5 text-white">
+  <!--Práctica-->
+  <section class="page-section bg-dark">
+    <div class="container px-lg-5">
       <div class="container px-4 px-lg-5 my-5">
-        <div class="code-container">
-          <div class="code-section">
-            <h3 class="text-secondary mb-0">Código ESP32</h3>
-            <pre class="line-numbers"><code class="language-clike">//ENVIO DE DATOS A UN SERVIDOR PHP
-#include &ltWiFi.h>
-#include &ltHTTPClient.h>
-
-// Configuración de la red WiFi
-const char* ssid = "SSID";          // Reemplaza con el SSID de tu red WiFi
-const char* password = "Password";  // Reemplaza con la contraseña de tu red WiFi
-
-// URL del servidor PHP en tu localhost con XAMPP
-const char* serverUrl = "http://192.168.68.114?apikey=123";
-
-String valueA = "";
-String valueB = "";
-bool waitingForA = true;
-
-void setup() {
-  Serial.begin(115200);
-  delay(100);
-
-  // Conectar a la red WiFi
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Conectando a WiFi...");
-  }
-  Serial.println("Conectado a WiFi");
-
-  // Solicitar el valor de A
-  Serial.println("Ingrese el valor de A:");
-}
-
-void loop() {
-  if (Serial.available()) {
-    String input = Serial.readStringUntil('\n');
-    input.trim();
-
-    if (waitingForA) {
-      valueA = input;
-      waitingForA = false;
-      Serial.println("Ingrese el valor de B:");
-    } else {
-      valueB = input;
-
-      // Construir la URL con los valores de A y B
-      String url = String(serverUrl) + "&A=" + valueA + "&B=" + valueB;
-
-      Serial.println("URL: " + url);
-
-      // Hacer la solicitud HTTP
-      if (WiFi.status() == WL_CONNECTED) {
-        HTTPClient http;
-        http.begin(url);
-        int httpCode = http.GET();
-        if (httpCode > 0) {
-          Serial.printf("Código de respuesta HTTP: %d\n", httpCode);
-          //String payload = http.getString();
-          //Serial.println("Respuesta: " + payload);
-        } else {
-          Serial.printf("Error en la solicitud HTTP: %s\n", http.errorToString(httpCode).c_str());
-        }
-        http.end();
-      } else {
-        Serial.println("WiFi no está conectado");
-      }
-
-      // Reiniciar para pedir los valores nuevamente
-      waitingForA = true;
-      Serial.println("Ingrese el valor de A:");
-    }
-  }
-}</code></pre>
+        <div class="row gx-4 gx-lg-5 align-items-center">
+          <p style="margin-top: 2%;" class="lead text-white">Existen 2 configuraciones de cable de red:</p>
+          <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="Directo.jpg" style="max-height: 500px;"
+              alt="..." /></div>
+          <div class="col-md-6">
+            <h3 class="display-5 fw-bolder text-white">Directo</h3>
+            <p class="lead text-white">
+              Este tipo de cables se utiliza para conectar dispositivos diferentes como una PC o un switch o un router.
+              En esta configuración, los extremos están conectados de la misma manera. Los estándares mas comunes son T568A y
+              T568B.<br><br>
+              Conexiones físicas más utilizadas:
+              <br>o Switch – Router
+              <br>o Switch – PC
+            </p>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer text-center">
-      <div class="container px-4 px-lg-5"></div>
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3"
-            href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
-              class="icon-social-linkedin"></i></a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3"
-            href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
-              class="icon-social-instagram"></i></a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
-              class="icon-social-github"></i></a>
-        </li>
-      </ul>
-      <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
-      <p>Universidad Iberoamericana Puebla.</p>
-      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
-          property="dct:title">Redes
-          Digitales</span> by <span property="cc:attributionName">José Pablo Hernández & Dirk Anton Topcic</span> is
-        licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
-          rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
-            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+          <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="Cruzado.jpg" alt="..."
+              style="max-height: 500px;" /></div>
+          <div class="col-md-6">
+            <h3 class="display-5 fw-bolder text-white">Cruzado</h3>
+            <p class="lead text-white">
+              Esta configuración se usa para conectar dispositivos similares como 2 PC. En un extremo tiene la
+              configuración T568A y el otro T568B.<br><br>
+              Conexiones físicas más utilizadas:
+              <br>o Switch – Switch
+              <br>o Router – Router
+              <br>o Router – PC
+              <br>o PC – PC 
+            </p>
+          </div>
+          <div>
+            <h3 class="display-5 fw-bolder text-white"><br>Probar cables</h3>
+            <p class="lead text-white">
+              Para probar un cable de red se requiere un probador de cables ethernet donde un extremo se conecta al puerto de transmisión 
+              (TX) y el otro extremo al puerto de recepción (RX) y si existe una buena conexión las luces deben encenderse en orden.<br><br>
+            </p>
+            <div><img class="card-img-top mb-5 mb-md-0" src="probador.png" style="width: 25%; height: auto; margin-left: 37.5%;" alt="...">
+            <p class="lead text-white">
+              <br>En caso de no contar con el tester, se puede probar la conexión de un cable directo conectando un extremo a una PC y el 
+              otro extremo a un switch o router. Ambos deben estar conectados a la misma red.<br><br>
+              Se debe abrir la terminal del PC y utilizando el comando “ping” más la dirección IP del otro dispositivo, se mandan una 
+              serie de paquetes, si se reciben respuestas sin pérdida de paquetes, el cable está funcionando correctamente.<br><br>
+              Para probar un cable cruzado, se conecta cada extremo del cable a una PC diferente que estén conectadas a la misma subred y 
+              repitiendo el comando “ping” mas la IP del otro dispositivo, se mandan una serie de paquetes, si se reciben respuestas sin 
+              pérdida de paquetes, el cable está funcionando correctamente.  
+            </p>
+            
+          </div>
+        </div>
       </div>
-    </footer>
+      <div class="row gx-lg-5">
+        <div>
+          <h1 class="display-5 fw-bold text-white">Tipo de cable para conectar elementos de red</h1>
+          <br>
+        </div>
+        <table class="text-white" style="margin-bottom: 2%;">
+          <tr><strong>
+              <th>DE / A</th>
+              <th>Computadora</th>
+              <th>Repetidor</th>
+              <th>HUB</th>
+              <th>Switch</th>
+              <th>Bridge</th>
+              <th>Router</th>
+            </strong></tr>
+          <tr>
+            <th>Computadora</th>
+            <td>Cruzado</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Cruzado</td>
+          </tr>
+          <tr>
+            <th>Repetidor</th>
+            <td>Directo</td>
+            <td>Cruzado</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+          </tr>
+          <tr>
+            <th>HUB</th>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Cruzado</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+          </tr>
+          <tr>
+            <th>Switch</th>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Cruzado</td>
+            <td>Directo</td>
+            <td>Directo</td>
+          </tr>
+          <tr>
+            <th>Bridge</th>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Cruzado</td>
+            <td>Directo</td>
+          </tr>
+          <tr>
+            <th>Router</th>
+            <td>Cruzado</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Directo</td>
+            <td>Cruzado</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="../../../Recursos\Archivos\scripts.js"></script>
-    <!-- Prism.js script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <!-- Prism.js plugin for line numbers -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <!-- Prism.js plugin for toolbar -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
-    <!-- Prism.js plugin for copy to clipboard functionality -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <!--Práctica-->
+  <section class="page-section text-white">
+    <div class="container px-lg-5">
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+          <div class="card text-white bg-secondary my-5 py-4 text-center">
+          <div class="card-body"><h1 font-size="50px" class="text-white m-0">Armados: </h1></div>
+          </div>
+          <p class="lead text-white">Para armar un cable directo se necesita un cable ethernet (CAT6), conectores RJ45 y una pinza ponchadora. 
+            Se debe cortar el cable a la longitud deseada y se debe pelar el cable para exponer los 8 cables internos. 
+            Se deben acomodar los cables en el orden deseado, ya sea T568A o T568B, y se debe cortar el exceso de cable. 
+            Se debe insertar el cable en el conector RJ45 y se debe utilizar la pinza ponchadora para asegurar el cable al conector. 
+            Se debe repetir el proceso en el otro extremo del cable.
+          <h3 class="display-5 fw-bolder text-white" style="margin: 2%;">Cable directo:</h3>
+          <img class="card-img-top mb-5 mb-md-0" src="Ponchado_R1.jpg" style="margin: 2%; width: 50%; margin-left: 25%;" alt="..." />
+          <img class="card-img-top mb-5 mb-md-0" src="Ponchado_R2.jpg" style="margin: 2%; width: 50%; margin-left: 25%;" alt="..." />
+
+          <h3 class="display-5 fw-bolder text-white" style="margin: 2%;">Cable cruzado:</h3>
+          <img class="card-img-top mb-5 mb-md-0" src="Ponchado_C1.jpg" style="margin: 2%; width: 50%; margin-left: 25%;" alt="..." />
+          <img class="card-img-top mb-5 mb-md-0" src="Ponchado_C2.jpg" style="margin: 2%; width: 50%; margin-left: 25%;" alt="..." />
+
+          <h3 class="display-5 fw-bolder text-white" style="margin: 2%;">Conectores RJ45:</h3>
+          <img class="card-img-top mb-5 mb-md-0" src="https://shop.encitech.com/images/normal/cat6a.png" style="margin: 2%; width: 50%; margin-left: 25%;" alt="..." />
+        
+          <h3 class="display-5 fw-bolder text-white" style="margin: 2%;">Pinzas:</h3>
+          <img class="card-img-top mb-5 mb-md-0" src="https://www.bmasdigital.com/image/cache/data/products/SYSRJ45CTdet-500x500.png" style="margin: 2%; width: 50%; margin-left: 25%;" alt="..." />
+          
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container px-4 px-lg-5"></div>
+    <ul class="list-inline mb-5">
+      <li class="list-inline-item">
+        <a class="social-link rounded-circle text-white mr-3"
+          href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
+            class="icon-social-linkedin"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a class="social-link rounded-circle text-white mr-3"
+          href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
+            class="icon-social-instagram"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
+            class="icon-social-github"></i></a>
+      </li>
+    </ul>
+    <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
+    <p>Universidad Iberoamericana Puebla.</p>
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Redes
+        Digitales</span> by <span property="cc:attributionName">José Pablo Hernández & Dirk Anton Topcic</span> is
+      licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+        rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="../../../Recursos\Archivos\scripts.js"></script>
+  <!-- Prism.js script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+  <!-- Prism.js plugin for line numbers -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!-- Prism.js plugin for toolbar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+  <!-- Prism.js plugin for copy to clipboard functionality -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 </body>
 
 </html>
