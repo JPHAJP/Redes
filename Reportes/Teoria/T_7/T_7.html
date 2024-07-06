@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
         rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../../Recursos\Archivos\styles.css">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
     <!--Background color-->
     <style>
         body {
@@ -51,97 +52,873 @@
             <h3 class="text-secondary mb-0">Descripción</h3>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-6">
-                    <p>En esta actividad se explorará la implementación de estilos CSS para mejorar la presentación visual de una página web. 
-                        CSS, o Cascading Style Sheets, permite a los desarrolladores controlar el diseño y apariencia de múltiples páginas web a la vez 
-                        sin alterar el contenido HTML.Con ello se puede aplicar estilos como colores, fuentes, y espaciados, además de técnicas más 
-                        avanzadas como la animación y los media para adaptar el diseño a diferentes dispositivos. Esto se logra mediante el uso de clases
-                        en donde con herencia se pueden obtener los estilos deseados para muchos contenidos.
+                    <p>Este reporte abarca una exploración detallada de los lenguajes de programación JavaScript y PHP. 
+                        En la primera sección, se profundiza en JavaScript, abordando su definición, aplicaciones, y conceptos 
+                        esenciales como el DOM (Document Object Model).
                         <br><br>
-                        Además, se muestran los distintos tipos de inputs en html para poder conocer su funcionamiento.</p>
+                        La segunda sección se centra en PHP, explicando su propósito. Se incluyen ejemplos de código para tareas
+                        comunes como la generación de contenido dinámico y el manejo de archivos. 
+                        <br><br>
+                        A lo largo del
+                        reporte, se proporcionan referencias adicionales para profundizar en ambos lenguajes, ofreciendo
+                        una base sólida tanto para principiantes como para desarrolladores experimentados.
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <img class="img-fluid" width="70%" height="auto"
-                        src="Estilos_inputs2.webp"
+                        src="https://www.zend.com/sites/default/files/image/2023-12/image-blog-zend-javascript-vs-php.png"
                         alt="...">
                 </div>
             </div>
         </div>
     </section>
-<!-- Events Section -->
-<section id="events" class="events section">
-    <div class="container" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="card">
-            <div class="card-img">
-                <img class="img-fluid" width="100%" height="auto"
-                src="css.webp"
-                alt="...">
+    <!-- Events Section -->
+    <section id="events" class="events section">
+        <div class="container mt-5">
+            <h1 class="text-center mb-4 text-white">Reporte de JavaScript y PHP</h1>
+
+            <!-- Sección de JavaScript -->
+            <h2 class="text-center mb-4 text-white">JavaScript</h2>
+
+            <!-- Pregunta 1 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Qué es el lenguaje JavaScript?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        JavaScript es un lenguaje de programación interpretado que se utiliza principalmente para crear
+                        y controlar contenido dinámico en las páginas web. Fue desarrollado originalmente por Netscape
+                        como un medio para agregar programas al código HTML.
+                    </p>
+                </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title"><a href="">Estilos</a></h5>
-              <p class="fst-italic text-center">Página web para mostrar los estilos que se pueden seleccionar con etiqutas de clase en css.</p>
-                <a class="btn btn-primary btn-xl" href="Estilos.html" target="_blank">Visitar muestrario de estilos</a>
+
+            <!-- Pregunta 2 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Para qué sirve el lenguaje JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        JavaScript se utiliza para agregar interactividad y comportamiento dinámico a las páginas web.
+                        Esto incluye actualizar y cambiar HTML y CSS, realizar cálculos, validar formularios, crear
+                        animaciones, gestionar eventos del usuario y trabajar con datos asíncronos mediante AJAX.
+                    </p>
+                </div>
             </div>
-          </div>
+
+            <!-- Pregunta 3 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿A qué se refiere el DOM (Document Object Model) en el desarrollo Web?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        El DOM (Document Object Model) es una interfaz de programación que permite a los lenguajes de
+                        script como JavaScript manipular, estructurar y dar estilo a los documentos HTML y XML.
+                        Proporciona una representación estructurada del documento y define métodos para acceder y
+                        manipular su estructura, estilo y contenido.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuál es la diferencia entre los archivos HTML, CSS y JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>HTML (HyperText Markup Language):</strong> Es el lenguaje de marcado que se utiliza para
+                        estructurar el contenido en la web. Define la estructura básica de las páginas web mediante
+                        etiquetas.<br>
+                        <strong>CSS (Cascading Style Sheets):</strong> Es el lenguaje utilizado para describir la
+                        presentación de documentos HTML. Controla el diseño, la apariencia y la disposición de los
+                        elementos en la página.<br>
+                        <strong>JS (JavaScript):</strong> Es el lenguaje de programación que permite agregar
+                        comportamiento e interactividad a las páginas web. Manipula el DOM, maneja eventos, realiza
+                        cálculos y controla el flujo de la aplicación.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 5 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Para qué sirve la etiqueta &lt;script&gt;?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        La etiqueta &lt;script&gt; se utiliza para incluir y ejecutar código JavaScript en un documento
+                        HTML. Puede contener el código directamente o referenciar un archivo externo de JavaScript.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 6 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿En qué consisten los 3 métodos para cambiar elementos tipo Tag Name, ID y Class Name con JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Tag Name:</strong>
+                    <pre><code>let elements = document.getElementsByTagName('tagName');
+        for (let i = 0; i &lt; elements.length; i++) {
+            elements[i].style.color = 'blue';
+        }</code></pre>
+                    <strong>ID:</strong>
+                    <pre><code>let element = document.getElementById('elementID');
+        element.style.color = 'blue';</code></pre>
+                    <strong>Class Name:</strong>
+                    <pre><code>let elements = document.getElementsByClassName('className');
+        for (let i = 0; i &lt; elements.length; i++) {
+            elements[i].style.color = 'blue';
+        }</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 7 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    Elabora en Replit un programa básico “Hola mundo” con JS, describe el funcionamiento y elementos
+                    utilizados.
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Para elaborar un programa básico "Hola mundo" en Replit, sigue estos pasos:<br>
+                        1. Crea un archivo HTML y un archivo JS.<br>
+                        2. En el archivo HTML, agrega una referencia al archivo JS usando la etiqueta &lt;script&gt;.
+                    </p>
+                    <p class="card-text">
+                        <strong>Archivo HTML (index.html):</strong>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Hola Mundo&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+            &lt;script src="script.js"&gt;&lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+                    <strong>Archivo JS (script.js):</strong>
+                    <pre><code>document.addEventListener('DOMContentLoaded', (event) =&gt; {
+            console.log('Hola Mundo desde JavaScript');
+            alert('Hola Mundo');
+        });</code></pre>
+                    </p>
+                    <p class="card-text">
+                        <strong>Descripción:</strong><br>
+                        - <strong>HTML:</strong> Define la estructura básica de la página, incluyendo un título y un
+                        encabezado.<br>
+                        - <strong>JS:</strong> Utiliza un evento <code>DOMContentLoaded</code> para asegurarse de que el
+                        DOM esté completamente cargado antes de ejecutar el código. Luego, imprime "Hola Mundo" en la
+                        consola y muestra una alerta con el mismo mensaje.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 8 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuál es la sintaxis de la programación en JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        La sintaxis básica de JavaScript incluye declaraciones de variables, estructuras de control,
+                        funciones y eventos. Aquí hay algunos ejemplos:
+                    </p>
+                    <p class="card-text">
+                        <strong>Declaración de variable:</strong>
+                    <pre><code>let nombre = 'Juan';</code></pre>
+                    <strong>Estructura de control (if-else):</strong>
+                    <pre><code>if (nombre === 'Juan') {
+            console.log('Hola Juan');
+        } else {
+            console.log('Hola desconocido');
+        }</code></pre>
+                    <strong>Función:</strong>
+                    <pre><code>function saludar(nombre) {
+            return 'Hola ' + nombre;
+        }</code></pre>
+                    <strong>Evento:</strong>
+                    <pre><code>document.getElementById('miBoton').addEventListener('click', function() {
+            alert('Botón clicado');
+        });</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 9 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se declaran variables en JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Las variables en JavaScript se pueden declarar utilizando <code>var</code>, <code>let</code> o
+                        <code>const</code>.
+                    </p>
+                    <p class="card-text">
+                        <strong>var:</strong> Tiene un ámbito de función y puede ser redeclarada.
+                    <pre><code>var nombre = 'Juan';</code></pre>
+                    <strong>let:</strong> Tiene un ámbito de bloque y no puede ser redeclarada en el mismo ámbito.
+                    <pre><code>let nombre = 'Juan';</code></pre>
+                    <strong>const:</strong> Tiene un ámbito de bloque y su valor no puede cambiar.
+                    <pre><code>const nombre = 'Juan';</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 10 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se declaran funciones en JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Las funciones en JavaScript se pueden declarar de varias maneras:
+                    </p>
+                    <p class="card-text">
+                        <strong>Declaración de función:</strong>
+                    <pre><code>function saludar(nombre) {
+            return 'Hola ' + nombre;
+        }</code></pre>
+                    <strong>Expresión de función:</strong>
+                    <pre><code>const saludar = function(nombre) {
+            return 'Hola ' + nombre;
+        };</code></pre>
+                    <strong>Función flecha:</strong>
+                    <pre><code>const saludar = (nombre) =&gt; {
+            return 'Hola ' + nombre;
+        };</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 11 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se llaman funciones en JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Las funciones se llaman utilizando su nombre seguido de paréntesis:
+                    <pre><code>saludar('Juan');</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 12 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo declaras una función interna de un HTML con JS y cómo declaras un documento externo con JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Función interna en HTML:</strong>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Interna&lt;/title&gt;
+            &lt;script&gt;
+                function saludar() {
+                    alert('Hola desde función interna');
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;button onclick="saludar()"&gt;Saludar&lt;/button&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+                    <strong>Función en documento externo:</strong>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Externa&lt;/title&gt;
+            &lt;script src="script.js"&gt;&lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;button onclick="saludar()"&gt;Saludar&lt;/button&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+                    <strong>Archivo JS (script.js):</strong>
+                    <pre><code>function saludar() {
+            alert('Hola desde función externa');
+        }</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 13 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuáles ciclos de programación están disponibles en JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        JavaScript soporta varios ciclos de programación, incluyendo:
+                    </p>
+                    <p class="card-text">
+                        <strong>for:</strong>
+                    <pre><code>for (let i = 0; i &lt; 10; i++) {
+            console.log(i);
+        }</code></pre>
+                    <strong>while:</strong>
+                    <pre><code>let i = 0;
+        while (i &lt; 10) {
+            console.log(i);
+            i++;
+        }</code></pre>
+                    <strong>do-while:</strong>
+                    <pre><code>let i = 0;
+        do {
+            console.log(i);
+            i++;
+        } while (i &lt; 10);</code></pre>
+                    <strong>forEach (en arrays):</strong>
+                    <pre><code>let array = [1, 2, 3, 4, 5];
+        array.forEach(function(element) {
+            console.log(element);
+        });</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 14 JavaScript -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuáles funciones de condicional están disponibles en JS?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        JavaScript soporta varias estructuras condicionales, incluyendo:
+                    </p>
+                    <p class="card-text">
+                        <strong>if-else:</strong>
+                    <pre><code>let edad = 18;
+        if (edad &gt;= 18) {
+            console.log('Eres mayor de edad');
+        } else {
+            console.log('Eres menor de edad');
+        }</code></pre>
+                    <strong>switch:</strong>
+                    <pre><code>let fruta = 'manzana';
+        switch (fruta) {
+            case 'manzana':
+                console.log('Es una manzana');
+                break;
+            case 'naranja':
+                console.log('Es una naranja');
+                break;
+            default:
+                console.log('Fruta desconocida');
+        }</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sección de PHP -->
+            <h2 class="text-center mb-4 text-white">PHP</h2>
+
+            <!-- Pregunta 1 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Qué es el lenguaje PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        PHP (Hypertext Preprocessor) es un lenguaje de programación de propósito general, ampliamente
+                        utilizado para el desarrollo web del lado del servidor. Es un lenguaje de script incrustado en
+                        HTML que se utiliza para crear páginas web dinámicas e interactivas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Para qué sirve el lenguaje PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        PHP se utiliza principalmente para:
+                    <ul>
+                        <li>Generar contenido dinámico en las páginas web.</li>
+                        <li>Interactuar con bases de datos.</li>
+                        <li>Gestionar sesiones de usuarios.</li>
+                        <li>Realizar operaciones de archivos en el servidor.</li>
+                        <li>Enviar y recibir cookies.</li>
+                        <li>Crear aplicaciones web completas.</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuál es la diferencia entre los archivos HTML y PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>HTML (HyperText Markup Language):</strong> Es un lenguaje de marcado utilizado para
+                        estructurar y presentar contenido en la web. Es estático y no tiene la capacidad de procesar
+                        datos o interactuar con servidores.<br>
+                        <strong>PHP:</strong> Es un lenguaje de script que se ejecuta en el servidor. Puede generar
+                        contenido HTML dinámico, interactuar con bases de datos y manejar lógica de negocio.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Para qué sirve la etiqueta &lt;?php ?&gt; ?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        La etiqueta &lt;?php ?&gt; se utiliza para delimitar el código PHP dentro de un archivo. Todo el
+                        código PHP debe estar dentro de estas etiquetas para ser interpretado correctamente por el
+                        servidor.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 5 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuáles son los pasos y requisitos para cargar un archivo PHP en un servidor?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                    <ol>
+                        <li><strong>Instalar un servidor web:</strong> Como Apache o Nginx.</li>
+                        <li><strong>Instalar PHP:</strong> Asegurarse de que PHP esté instalado y configurado
+                            correctamente.</li>
+                        <li><strong>Crear el archivo PHP:</strong> Escribir el código PHP en un archivo con extensión
+                            .php.</li>
+                        <li><strong>Subir el archivo al servidor:</strong> Utilizar un cliente FTP o el panel de control
+                            del servidor para subir el archivo PHP.</li>
+                        <li><strong>Configurar el servidor:</strong> Asegurarse de que el servidor esté configurado para
+                            interpretar archivos PHP.</li>
+                        <li><strong>Acceder al archivo a través del navegador:</strong> Introducir la URL del archivo
+                            PHP en el navegador para ejecutarlo.</li>
+                    </ol>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 6 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    Elabora un programa básico “Hola mundo” con PHP, describe el funcionamiento y elementos utilizados.
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Código PHP:</strong>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Hola Mundo PHP&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;?php
+                echo "Hola Mundo desde PHP";
+            ?&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+                    </p>
+                    <p class="card-text">
+                        <strong>Descripción:</strong><br>
+                        - **HTML**: Define la estructura básica de la página.<br>
+                        - **PHP**: Utiliza la función <code>echo</code> para imprimir "Hola Mundo desde PHP" en la
+                        página web.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 7 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Para qué sirve la función echo en PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        La función <code>echo</code> en PHP se utiliza para enviar una o más cadenas de texto al
+                        navegador. Es una forma de generar contenido dinámico en una página web.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 8 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuál es la sintaxis de la programación en PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        La sintaxis básica de PHP incluye declaraciones de variables, estructuras de control, funciones
+                        y eventos. Aquí hay algunos ejemplos:
+                    </p>
+                    <p class="card-text">
+                        <strong>Declaración de variable:</strong>
+                    <pre><code>$nombre = 'Juan';</code></pre>
+                    <strong>Estructura de control (if-else):</strong>
+                    <pre><code>if ($nombre == 'Juan') {
+            echo 'Hola Juan';
+        } else {
+            echo 'Hola desconocido';
+        }</code></pre>
+                    <strong>Función:</strong>
+                    <pre><code>function saludar($nombre) {
+            return 'Hola ' . $nombre;
+        }</code></pre>
+                    <strong>Llamada a función:</strong>
+                    <pre><code>echo saludar('Juan');</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 9 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    Describe la diferencia y consideraciones especiales al utilizar caracteres en mayúsculas en PHP, al
+                    utilizarlo en palabras reservadas y en variables.
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Palabras reservadas:</strong> En PHP, las palabras reservadas (como <code>if</code>,
+                        <code>else</code>, <code>while</code>, <code>echo</code>) no distinguen entre mayúsculas y
+                        minúsculas. Es decir, <code>if</code> y <code>IF</code> son lo mismo.<br>
+                        <strong>Variables:</strong> Las variables en PHP distinguen entre mayúsculas y minúsculas. Por
+                        ejemplo, <code>$Nombre</code>, <code>$nombre</code> y <code>$NOMBRE</code> son tres variables
+                        diferentes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 10 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se declaran variables en PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Las variables en PHP se declaran utilizando el símbolo <code>$</code> seguido del nombre de la
+                        variable:
+                    <pre><code>$variable = 'valor';</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 11 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se declaran funciones en PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Las funciones en PHP se declaran utilizando la palabra clave <code>function</code>:
+                    <pre><code>function nombreFuncion($parametro) {
+            // Código de la función
+        }</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 12 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se llaman funciones en PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Las funciones se llaman utilizando su nombre seguido de paréntesis:
+                    <pre><code>nombreFuncion($valor);</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 13 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuáles ciclos de programación están disponibles en PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        PHP soporta varios ciclos de programación, incluyendo:
+                    </p>
+                    <p class="card-text">
+                        <strong>for:</strong>
+                    <pre><code>for ($i = 0; $i &lt; 10; $i++) {
+            echo $i;
+        }</code></pre>
+                    <strong>while:</strong>
+                    <pre><code>$i = 0;
+        while ($i &lt; 10) {
+            echo $i;
+            $i++;
+        }</code></pre>
+                    <strong>do-while:</strong>
+                    <pre><code>$i = 0;
+        do {
+            echo $i;
+            $i++;
+        } while ($i &lt; 10);</code></pre>
+                    <strong>foreach (en arrays):</strong>
+                    <pre><code>$array = [1, 2, 3, 4, 5];
+        foreach ($array as $element) {
+            echo $element;
+        }</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 14 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cuáles funciones de condicional están disponibles en PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        PHP soporta varias estructuras condicionales, incluyendo:
+                    </p>
+                    <p class="card-text">
+                        <strong>if-else:</strong>
+                    <pre><code>if ($edad &gt;= 18) {
+            echo 'Eres mayor de edad';
+        } else {
+            echo 'Eres menor de edad';
+        }</code></pre>
+                    <strong>switch:</strong>
+                    <pre><code>$fruta = 'manzana';
+        switch ($fruta) {
+            case 'manzana':
+                echo 'Es una manzana';
+                break;
+            case 'naranja':
+                echo 'Es una naranja';
+                break;
+            default:
+                echo 'Fruta desconocida';
+        }</code></pre>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 15 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    Identifica los diferentes métodos reservados para el tratamiento de archivos.
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        PHP proporciona varios métodos para el manejo de archivos, incluyendo:
+                    <ul>
+                        <li><code>fopen()</code>: Abre un archivo.</li>
+                        <li><code>fclose()</code>: Cierra un archivo.</li>
+                        <li><code>fread()</code>: Lee un archivo.</li>
+                        <li><code>fwrite()</code>: Escribe en un archivo.</li>
+                        <li><code>file_get_contents()</code>: Lee todo el contenido de un archivo en una cadena.</li>
+                        <li><code>file_put_contents()</code>: Escribe una cadena en un archivo.</li>
+                        <li><code>fgets()</code>: Lee una línea de un archivo.</li>
+                        <li><code>feof()</code>: Comprueba si se ha alcanzado el final del archivo.</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 16 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    Elabora un programa básico con PHP que permita crear un archivo de texto en el servidor, describe el
+                    funcionamiento y elementos utilizados.
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Código PHP:</strong>
+                    <pre><code>&lt;?php
+        $file = fopen("archivo.txt", "w") or die("No se puede abrir el archivo!");
+        $text = "Hola, este es un archivo de texto creado con PHP.";
+        fwrite($file, $text);
+        fclose($file);
+        echo "Archivo creado exitosamente.";
+        ?&gt;</code></pre>
+                    </p>
+                    <p class="card-text">
+                        <strong>Descripción:</strong><br>
+                        - <code>fopen()</code>: Abre el archivo "archivo.txt" en modo de escritura (<code>"w"</code>).
+                        Si el archivo no existe, lo crea.<br>
+                        - <code>fwrite()</code>: Escribe la cadena de texto en el archivo.<br>
+                        - <code>fclose()</code>: Cierra el archivo después de escribir.<br>
+                        - <code>echo</code>: Imprime un mensaje indicando que el archivo se ha creado exitosamente.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 17 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se utiliza el método Open/Read en el manejo de archivos con PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Código PHP:</strong>
+                    <pre><code>&lt;?php
+        $file = fopen("archivo.txt", "r") or die("No se puede abrir el archivo!");
+        while (!feof($file)) {
+            echo fgets($file) . "&lt;br&gt;";
+        }
+        fclose($file);
+        ?&gt;</code></pre>
+                    </p>
+                    <p class="card-text">
+                        <strong>Descripción:</strong><br>
+                        - <code>fopen()</code>: Abre el archivo "archivo.txt" en modo de lectura (<code>"r"</code>).<br>
+                        - <code>feof()</code>: Comprueba si se ha alcanzado el final del archivo.<br>
+                        - <code>fgets()</code>: Lee una línea del archivo y la imprime.<br>
+                        - <code>fclose()</code>: Cierra el archivo después de leer.
+                    </p>
+                </div>
+            </div>
+            <!-- Pregunta 18 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    ¿Cómo se utiliza el método Create/Write en el manejo de archivos con PHP?
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Código PHP:</strong>
+                    <pre><code>&lt;?php
+$file = fopen("archivo.txt", "w") or die("No se puede abrir el archivo!");
+$text = "Hola, este es un archivo de texto creado con PHP.";
+fwrite($file, $text);
+fclose($file);
+echo "Archivo creado y escrito exitosamente.";
+?&gt;</code></pre>
+                    </p>
+                    <p class="card-text">
+                        <strong>Descripción:</strong><br>
+                        - <code>fopen()</code>: Abre el archivo "archivo.txt" en modo de escritura (<code>"w"</code>).
+                        Si el archivo no existe, lo crea.<br>
+                        - <code>fwrite()</code>: Escribe la cadena de texto en el archivo.<br>
+                        - <code>fclose()</code>: Cierra el archivo después de escribir.<br>
+                        - <code>echo</code>: Imprime un mensaje indicando que el archivo se ha creado y escrito
+                        exitosamente.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pregunta 19 PHP -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    Finamente, concluye cuales serian las ventajas de integrar PHP en una página web.
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        - <strong>Generación de contenido dinámico:</strong> PHP permite crear páginas web dinámicas que
+                        pueden cambiar en respuesta a la entrada del usuario o a otras condiciones.<br>
+                        - <strong>Interacción con bases de datos:</strong> PHP puede interactuar con bases de datos como
+                        MySQL para almacenar y recuperar datos de manera eficiente.<br>
+                        - <strong>Manejo de formularios:</strong> PHP puede procesar datos enviados a través de
+                        formularios HTML, lo que es útil para autenticación de usuarios, encuestas, etc.<br>
+                        - <strong>Compatibilidad con HTML:</strong> PHP se puede incrustar directamente en el HTML, lo
+                        que facilita la integración y el desarrollo web.<br>
+                        - <strong>Amplia disponibilidad y soporte:</strong> PHP es ampliamente utilizado y tiene una
+                        gran comunidad de soporte, así como abundantes recursos y bibliotecas disponibles.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Referencias -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    Referencias
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                    <ul>
+                        <li><a href="https://www.w3schools.com/js/default.asp" target="_blank">W3Schools: JavaScript</a>
+                        </li>
+                        <li><a href="https://www.w3schools.com/tags/tag_input.asp" target="_blank">W3Schools: Input
+                                Tag</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+                                target="_blank">Mozilla Developer Network (MDN) JavaScript Guide</a></li>
+                        <li><a href="https://javascript.info/" target="_blank">JavaScript.info</a></li>
+                        <li><a href="https://stackoverflow.com/questions/tagged/javascript" target="_blank">Stack
+                                Overflow: JavaScript</a></li>
+                        <li><a href="https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/"
+                                target="_blank">JavaScript: The Definitive Guide</a></li>
+                        <li><a href="https://www.php.net/manual/en/" target="_blank">PHP Manual</a></li>
+                        <li><a href="https://www.w3schools.com/php/" target="_blank">W3Schools PHP Tutorial</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/Programming_guide/PHP"
+                                target="_blank">Mozilla Developer Network (MDN) PHP Guide</a></li>
+                        <li><a href="https://phptherightway.com/" target="_blank">PHP The Right Way</a></li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="card">
-            <div class="card-img">
-                <img class="img-fluid" width="100%" style="max-height: 525px;"
-                src="Html_inputs.jpeg"
-                alt="...">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><a href="">Inputs</a></h5>
-              <p class="fst-italic text-center">Se elaboró una página web para con un muestrario de los distintos inputs en html.</p>
-                <a class="btn btn-primary btn-xl" href="Inputs.html" target="_blank">Visitar muestrario de inputs</a>
-            </div>
-          </div>
-        </div>
-      </div>
+
+</body>
+<!-- Footer -->
+<footer class="footer text-center">
+    <div class="container px-4 px-lg-5"></div>
+    <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3"
+                href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
+                    class="icon-social-linkedin"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3"
+                href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
+                    class="icon-social-instagram"></i></a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
+                    class="icon-social-github"></i></a>
+        </li>
+    </ul>
+    <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
+    <p>Universidad Iberoamericana Puebla.</p>
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Redes
+            Digitales</span> by <span property="cc:attributionName">José Pablo Hernández
+            & Dirk Anton Topcic</span> is licensed under <a
+            href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+            rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
     </div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="footer text-center">
-        <div class="container px-4 px-lg-5"></div>
-        <ul class="list-inline mb-5">
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white mr-3"
-                    href="https://mx.linkedin.com/in/jos%C3%A9-pablo-hern%C3%A1ndez-alonso-03a195256"><i
-                        class="icon-social-linkedin"></i></a>
-            </li>
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white mr-3"
-                    href="https://www.instagram.com/jose_pablo_ha?igsh=MTlvb2s1ejFuY210MQ%3D%3D&utm_source=qr"><i
-                        class="icon-social-instagram"></i></a>
-            </li>
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white" href="https://github.com/JPHAJP"><i
-                        class="icon-social-github"></i></a>
-            </li>
-        </ul>
-        <img src="../../../Recursos/Imagenes/IM3.png" alt="University Logo" style="width:100px;">
-        <p>Universidad Iberoamericana Puebla.</p>
-        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
-                property="dct:title">Redes Digitales</span> by <span property="cc:attributionName">José Pablo Hernández
-                & Dirk Anton Topcic</span> is licensed under <a
-                href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
-                rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
-                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                    src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
-                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                    src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
-                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                    src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
-                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                    src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
-        </div>
-    </footer>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../../../Recursos\Archivos\scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="../../../Recursos\Archivos\scripts.js"></script>
+
+</html>
