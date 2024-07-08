@@ -87,12 +87,12 @@
         <embed src="https://proyecto-redes.onrender.com/" type="application/pdf" width="100%" height="800px" style="margin-top: 10px;"/>
         <embed src="https://proyecto-redes.onrender.com/dashboard/" type="application/pdf" width="100%" height="800px" style="margin-top: 10px;"/>
         <a class="btn btn-primary btn-xl" style="margin-left: 45%; margin-top: 20px;" href="https://proyecto-redes.onrender.com/" target="_blank">Ir al Dashboard</a>
-        
+        <a class="btn btn-primary btn-xl" style="margin-left: 45%; margin-top: 20px;" href="https://github.com/JPHAJP/Proyecto_Redes" target="_blank">Github del proyecto</a>
         <!--Flutterflow-->
         <img src="https://miro.medium.com/v2/resize:fit:1155/1*czqOMYaaNDhd6RTi4VtsuQ.png" alt="Flutterflow Logo" style="width:60%; margin-left: 20%; margin-top: 100px;">
-        <embed src="https://flutterflow.io/project/615f3b3b3b3b3b0012b3b3b3" type="application/pdf" width="100%"
+        <embed src="https://preview.flutterflow.app/dashboard-icj4uf/2e7smUXqN7uLpZC81HeD" width="100%"
             height="800px" style="margin-top: 50px;"/>
-        <a class="btn btn-primary btn-xl" style="margin-left: 45%; margin-top: 20px;" href="https://flutterflow.io/project/615f3b3b3b3b3b0012b3b3b3" target="_blank">Ir a WebApp</a>
+        <a class="btn btn-primary btn-xl" style="margin-left: 45%; margin-top: 20px;" href="https://preview.flutterflow.app/dashboard-icj4uf/2e7smUXqN7uLpZC81HeD" target="_blank">Ir a WebApp</a>
 
         
     </section>
@@ -338,8 +338,8 @@ int ledA = 33;
 int ledR = 25;
 
 //PHP server
-String url = "https://proyecto-redes.onrender.com/dashboard/?";
-String sensor= "DATO";
+String url = "https://proyecto-redes.onrender.com/dashboard/?apikey=123&";
+String sensor= "dist";
 
 
 void setup(){
@@ -353,7 +353,7 @@ void setup(){
     delay(1000);
     Serial.begin(115200);
 
-    WiFi.begin("EXAMPLE", "EXAMPLE");
+    WiFi.begin("Jp Phone", "yayoyayo");
 
     while((WiFi.status() != WL_CONNECTED)) {
         delay(500);
@@ -377,11 +377,11 @@ void loop(){
     digitalWrite(ledV, HIGH);
     digitalWrite(ledA, LOW);
     digitalWrite(ledR, LOW);
-    } else if (distance &lt= 7 && distance > 2) {
+    } else if (distance <= 7 && distance > 2) {
     digitalWrite(ledV, LOW);
     digitalWrite(ledA, HIGH);
     digitalWrite(ledR, LOW);
-    } else if (distance &lt= 2) {
+    } else if (distance <= 2) {
     digitalWrite(ledV, LOW);
     digitalWrite(ledA, LOW);
     digitalWrite(ledR, HIGH);
