@@ -52,12 +52,14 @@
             <h3 class="text-secondary mb-0">Descripción</h3>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-6">
-                    <p>Este reporte abarca una exploración detallada de los lenguajes de programación JavaScript y PHP. 
-                        En la primera sección, se profundiza en JavaScript, abordando su definición, aplicaciones, y conceptos 
+                    <p>Este reporte abarca una exploración detallada de los lenguajes de programación JavaScript y PHP.
+                        En la primera sección, se profundiza en JavaScript, abordando su definición, aplicaciones, y
+                        conceptos
                         esenciales como el DOM (Document Object Model).
                         <br><br>
-                        La segunda sección se centra en PHP, explicando su propósito. Se incluyen ejemplos de código para tareas
-                        comunes como la generación de contenido dinámico y el manejo de archivos. 
+                        La segunda sección se centra en PHP, explicando su propósito. Se incluyen ejemplos de código
+                        para tareas
+                        comunes como la generación de contenido dinámico y el manejo de archivos.
                         <br><br>
                         A lo largo del
                         reporte, se proporcionan referencias adicionales para profundizar en ambos lenguajes, ofreciendo
@@ -203,23 +205,31 @@
         &lt;/head&gt;
         &lt;body&gt;
             &lt;h1&gt;Hola Mundo&lt;/h1&gt;
-            &lt;script src="script.js"&gt;&lt;/script&gt;
+            &lt;script&gt;
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    document.getElementById('mensaje').textContent = 'Hola Mundo desde JavaScript';
+                    console.log('Hola Mundo desde JavaScript');
+                });
+            &lt;/script&gt;
         &lt;/body&gt;
         &lt;/html&gt;</code></pre>
-                    <strong>Archivo JS (script.js):</strong>
-                    <pre><code>document.addEventListener('DOMContentLoaded', (event) =&gt; {
-            console.log('Hola Mundo desde JavaScript');
-            alert('Hola Mundo');
-        });</code></pre>
                     </p>
                     <p class="card-text">
                         <strong>Descripción:</strong><br>
                         - <strong>HTML:</strong> Define la estructura básica de la página, incluyendo un título y un
                         encabezado.<br>
                         - <strong>JS:</strong> Utiliza un evento <code>DOMContentLoaded</code> para asegurarse de que el
-                        DOM esté completamente cargado antes de ejecutar el código. Luego, imprime "Hola Mundo" en la
-                        consola y muestra una alerta con el mismo mensaje.
+                        DOM esté completamente cargado antes de ejecutar el código. Después, busca el elemento con el ID
+                        "mensaje" y establece su contenido de texto en "Hola Mundo desde JavaScript". Luego, imprime "Hola
+                        Mundo desde JavaScript" en la
+                        consola.
                     </p>
+                    <embed src="https://replit.com/@JPHAJP/Practica-JS?embed=true" width="100%" height="500px">
+                    <button class="btn btn-primary"
+                        onclick="window.open('https://replit.com/@JPHAJP/Practica-JS')">Abrir en Replit</button>
+                    <br><br><p class="card-text">Página de muestra de replit: https://01c30e0b-d849-4698-bc0e-525d1a9e1cce-00-28pgugjncufwv.worf.replit.dev/</p>
+                    <embed src="https://01c30e0b-d849-4698-bc0e-525d1a9e1cce-00-28pgugjncufwv.worf.replit.dev/" width="100%"
+                        height="100px">
                 </div>
             </div>
 
@@ -546,6 +556,12 @@
                         - **PHP**: Utiliza la función <code>echo</code> para imprimir "Hola Mundo desde PHP" en la
                         página web.
                     </p>
+                    <embed src="https://replit.com/@AntonTM89/Hello-World-php?embed=true" width="100%" height="500px">
+                        <button class="btn btn-primary"
+                        onclick="window.open('https://replit.com/@AntonTM89/Hello-World-php')">Abrir en Replit</button>
+                    <br><br><p class="card-text">Página de muestra de replit: https://e285f189-e055-4a3b-ac05-47a64c9d0533-00-1xq0y84iacurb.kirk.replit.dev/</p>
+                    <embed src="https://e285f189-e055-4a3b-ac05-47a64c9d0533-00-1xq0y84iacurb.kirk.replit.dev/" width="100%"
+                        height="100px">
                 </div>
             </div>
 
@@ -765,6 +781,12 @@
                         - <code>fclose()</code>: Cierra el archivo después de escribir.<br>
                         - <code>echo</code>: Imprime un mensaje indicando que el archivo se ha creado exitosamente.
                     </p>
+                    <embed src="https://replit.com/@JPHAJP/Creat-doc?embed=true" width="100%" height="500px">
+                        <button class="btn btn-primary"
+                        onclick="window.open('https://replit.com/@JPHAJP/Creat-doc?')">Abrir en Replit</button>
+                    <br><br><p class="card-text">Página de muestra de replit: https://d61d8e51-54ee-45d0-9f1a-604f8bc6943d-00-3qglxp5yo5i7d.riker.replit.dev/</p>
+                    <embed src="https://d61d8e51-54ee-45d0-9f1a-604f8bc6943d-00-3qglxp5yo5i7d.riker.replit.dev/" width="200%"
+                        height="100px">
                 </div>
             </div>
 
